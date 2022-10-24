@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
-
+import java.awt.Image;
+import java.awt.Toolkit;
 /**
  *
  * @author natty
@@ -16,6 +17,13 @@ public class InicioSesion extends javax.swing.JFrame {
     public InicioSesion() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+        getImage(ClassLoader.getSystemResource("Imagenes/logoApp.png"));
+
+        return retValue;
     }
 
     /**
@@ -42,6 +50,7 @@ public class InicioSesion extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
