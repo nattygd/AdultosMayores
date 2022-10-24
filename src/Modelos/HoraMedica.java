@@ -184,7 +184,7 @@ public class HoraMedica {
         PrintWriter pw = null;
 
         try {
-            fw = new FileWriter("C:/Users/natty/Documents/NetBeansProjects/AdultosMayores/src/main/java/com/mycompany/adultosmayores/prueba1.txt", true);
+            fw = new FileWriter("HorasMedicas.txt", true);
             pw = new PrintWriter(fw);
             pw.println("Asunto: " + Titulo);
             if(!Medico.equals("vacio")){
