@@ -17,13 +17,18 @@ public class Main {
     int opcion;
     int edad;
     int numeroCelular;
-    String rut;
+    String rut; // prueba 
     String nombre;
     String direccion;
     String parentesco;
     AdultoMayor adultos;
     String input;
-
+    
+    
+    String prueba; //prueba
+    
+    
+    
     adultos = new AdultoMayor("1231", "diego", "lugar", 22, 7777); // arreglar
 
     System.out.println("Opcion 0 :  Salir");
