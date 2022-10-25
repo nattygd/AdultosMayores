@@ -103,7 +103,7 @@ public class Main {
             case 2:
                 System.out.println("Ingrese rut sin punto ni guion:");
                 rut = entrada.next();
-                while (!rut.matches("[0-10]*")) {
+                while (!rut.matches("[0-9]*")) {
                     System.out.println("Tipo de dato incorrecto, solo numeros");
                     System.out.println("Ingrese rut valido:");
                     rut = entrada.next();
