@@ -41,7 +41,7 @@ public class Main {
     System.out.println("Opcion 9 :  Imprimir horas medicas");
     System.out.println("Opcion 10 :  Moddificar datos especificos");
     opcion = entrada.nextInt();
-    while (!String.valueOf(opcion).matches("[0-10]")) {
+    while (!String.valueOf(opcion).matches("[0-9]*")) {
         System.out.println("dato no esta completo , solo numeros");
         System.out.println("Ingrese opcion");
         opcion = entrada.nextInt();
@@ -103,7 +103,7 @@ public class Main {
             case 2:
                 System.out.println("Ingrese rut sin punto ni guion:");
                 rut = entrada.next();
-                while (!rut.matches("[0-9]*")) {
+                while (!rut.matches("[0-10]*")) {
                     System.out.println("Tipo de dato incorrecto, solo numeros");
                     System.out.println("Ingrese rut valido:");
                     rut = entrada.next();
@@ -196,9 +196,10 @@ public class Main {
         System.out.println("Opcion 7 :  ImprimirMedicamentos");
         System.out.println("Opcion 8 :  Agregar una hora medica");
         System.out.println("Opcion 9 :  Imprimir horas medicas");
+        System.out.println("Opcion 10 :  Moddificar datos especificos");
 
         opcion = entrada.nextInt();
-        while (!String.valueOf(opcion).matches("[0-9]")) {
+        while (!String.valueOf(opcion).matches("[0-9]*")) {
             System.out.println("dato no esta completo , solo numeros");
             System.out.println("Ingrese opcion");
             opcion = entrada.nextInt();
