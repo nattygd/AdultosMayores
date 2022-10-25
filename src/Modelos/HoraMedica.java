@@ -206,4 +206,8 @@ public class HoraMedica {
 
         System.out.println("***Se ha creado un txt con los horarios de las citas medicas***");
     }
+    
+    void setTutulo(String palabra) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

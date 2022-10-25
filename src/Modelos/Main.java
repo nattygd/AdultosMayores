@@ -11,6 +11,10 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner entrada = new Scanner(System.in);
+    
+    // arreglar (si se pide imprimir algo inexistente) Error
+    //modificacion de especificos 
+    //agregar funcion llamar a apoderados
 
     public static void main(String[] args) { 
     int opcion;
@@ -23,7 +27,7 @@ public class Main {
     AdultoMayor adultos;
     String input;
 
-    adultos = new AdultoMayor("1231", "diego", "lugar", 22, 7777); // arreglar
+    adultos = new AdultoMayor("200132565", "Diego", "Lugar", 85, 963667859); // arreglar
 
     System.out.println("Opcion 0 :  Salir");
     System.out.println("Opcion 1 :  Registrar adulto mayor");
@@ -35,9 +39,10 @@ public class Main {
     System.out.println("Opcion 7 :  ImprimirMedicamentos");
     System.out.println("Opcion 8 :  Agregar una hora medica");
     System.out.println("Opcion 9 :  Imprimir horas medicas");
+    System.out.println("Opcion 10 : Modificar datos especificos");
 
     opcion = entrada.nextInt();
-    while (!String.valueOf(opcion).matches("[0-9]")) {
+    while (!String.valueOf(opcion).matches("[0-9]*")) {
         System.out.println("dato no esta completo , solo numeros");
         System.out.println("Ingrese opcion");
         opcion = entrada.nextInt();
@@ -47,7 +52,7 @@ public class Main {
 
         switch (opcion) {
             case 0:
-                System.out.print("Fin"); //////
+                System.out.print("Fin");
                 break;
                 
             case 1:
@@ -60,7 +65,8 @@ public class Main {
                 }
 
                 System.out.println("Ingrese nombre:");
-                nombre = entrada.next(); /// intentar .next ne para poner nombre y apelldo
+                nombre = entrada.next();
+                
                 while (!nombre.matches("[a-zA-Z]*")) {
                     System.out.println("Tipo de dato incorrecto, solo letras");
                     System.out.println("Ingrese nombre valido:");
@@ -173,6 +179,10 @@ public class Main {
             case 9:
                 adultos.ListarHoras();
                 break;
+                
+            case 10:
+                adultos.ModificarDato();
+                break;
 
             default:
                 System.out.println("Opcion no valida");
@@ -189,9 +199,10 @@ public class Main {
         System.out.println("Opcion 7 :  ImprimirMedicamentos");
         System.out.println("Opcion 8 :  Agregar una hora medica");
         System.out.println("Opcion 9 :  Imprimir horas medicas");
+        System.out.println("Opcion 10 : Modificar datos especificos");
 
         opcion = entrada.nextInt();
-        while (!String.valueOf(opcion).matches("[0-9]")) {
+        while (!String.valueOf(opcion).matches("[0-9]*")) {
             System.out.println("dato no esta completo , solo numeros");
             System.out.println("Ingrese opcion");
             opcion = entrada.nextInt();

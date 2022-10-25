@@ -7,7 +7,7 @@ package Modelos;
  *
  * @author natty
  */
-public class Individuo{
+public abstract class Individuo{ //abstract?
     private String Rut;
     private String Nombre;
     private String Direccion;
