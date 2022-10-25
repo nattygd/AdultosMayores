@@ -2,20 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.adultosmayores;
+package Modelos;
 
 /**
  *
  * @author natty
  */
-import java.util.Scanner;
 
 public class PersonaACargo extends Individuo{
     //atributos
     private int NumeroCelular;
     private String Parentesco;
 
-    Scanner entrada = new Scanner(System.in);
 
     public PersonaACargo(String Rut,String Nombre, String Direccion, String Parentesco , int NumeroCelular  ){
         super(Rut , Nombre , Direccion);

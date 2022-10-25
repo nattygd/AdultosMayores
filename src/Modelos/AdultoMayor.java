@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package com.mycompany.adultosmayores;
+package Modelos;
 /**
  *
  * @author natty
@@ -15,9 +15,9 @@ public class AdultoMayor extends Individuo {
     // atributos
     private int Edad;
     private int NumeroCelular;
-    private PersonaACargo Apoderado;
-    ArrayList<Medicamento> Medicamentos = new ArrayList<Medicamento>();
-    private ArrayList<HoraMedica> HorasMedicas = new ArrayList<HoraMedica>();
+    private ArrayList<PersonaACargo> Apoderado = new ArrayList<>();
+    ArrayList<Medicamento> Medicamentos = new ArrayList<>();
+    private final ArrayList<HoraMedica> HorasMedicas = new ArrayList<>();
 
     Scanner entrada = new Scanner(System.in);
   
@@ -100,11 +100,13 @@ public class AdultoMayor extends Individuo {
     }
 
     public void agregarApoderado(String Rut, String Nombre, String Direccion, String Parentesco, int NumeroCelular) {
-        Apoderado = new PersonaACargo(Rut, Nombre, Direccion, Parentesco, NumeroCelular);
+      Apoderado.add(new PersonaACargo(Rut, Nombre, Direccion, Parentesco, NumeroCelular));
     }
-
-    public void imprimirAdultoACargo() {
-        Apoderado.imprimir();
+   
+    public void imprimirAdultoACargo() {  
+        for(int l=0;l< Apoderado.size(); l++){
+        Apoderado.get(l).imprimir();
+      }
     }
 
     public void agregarHoraMedica() {
@@ -138,4 +140,258 @@ public class AdultoMayor extends Individuo {
             HorasMedicas.get(k).crearTxt();
         }
     }
+
+    public void ModificarDato(){
+        String opcion;
+        String palabra;
+        
+        System.out.println("Ingrese 1 para Modificar dato delAdulto Mayor");
+        System.out.println("Ingrese 2 para Modificar dato de una Hora Medica");
+        System.out.println("Ingrese 1 para Modificar dato ded las persona a cargo");
+        opcion = entrada.next();
+        while (!opcion.matches("[1234]")) {
+            System.out.println("Tipo de datos incorrectos, solo 1 , 2 y 3 ");
+            System.out.println("Ingrese opcion valida:");
+            opcion = entrada.next();
+        }
+        switch (opcion) {
+            case "1":
+                System.out.println("ingrese 1 si quieres cambiar el rut");
+                System.out.println("ingrese 2 si quieres cambiar el nombre");
+                System.out.println("ingrese 3 si quieres cambiar la direccion ");
+                System.out.println("ingrese 4 si quieres edad");
+                System.out.println("ingrese 5 si quieres numero celular");
+                
+                opcion = entrada.next();
+                while (!opcion.matches("[12345]")) {
+                    System.out.println("Tipo de datos incorrectos, solo 1 , 2 , 3 , 4 y 5");
+                    System.out.println("Ingrese opcion valida:");
+                    opcion = entrada.next();
+                }
+                switch(opcion){
+                    case "1":
+                        System.out.println("Ingrese rut sin puntos ni guion:");
+                        palabra = entrada.next();
+                        while (!palabra.matches("[0-9]*")) {
+                            System.out.println("Tipo de dato incorrecto, solo numeros");
+                            System.out.println("Ingrese rut valido:");
+                            palabra = entrada.next();
+                        }  
+                        setRut(palabra);
+                        break;
+                    case "2":
+                        System.out.println("Ingrese nombre:");
+                        palabra = entrada.next(); 
+                        while (!palabra.matches("[a-zA-Z]*")) {
+                            System.out.println("Tipo de dato incorrecto, solo letras");
+                            System.out.println("Ingrese nombre valido:");
+                            palabra = entrada.next(); 
+                        }
+                        setNombre(palabra);
+                        break;
+                    case "3":
+                        System.out.println("Ingrese Direccion:");
+                        palabra = entrada.next();
+                        while (!palabra.matches("[a-zA-Z]*")) {
+                            System.out.println("Tipo de dato incorrecto, solo letras");
+                            System.out.println("Ingrese direccion valida:");
+                            palabra = entrada.next();
+                        }
+                        break;
+                    case "4":
+                        System.out.println("Ingrese edad:");
+                        palabra = entrada.next();
+                        while (!palabra.matches("[0-9]*")) {
+                            System.out.println("Tipo de dato incorrecto, solo numeros");
+                            System.out.println("Ingrese edad valida:");
+                            palabra = entrada.next();
+                        }
+                        setEdad(Integer.parseInt(palabra));
+                        break;
+                    case "5":
+                        System.out.println("Ingrese numero de contacto:");
+                        palabra = entrada.next();
+                        while (!palabra.matches("[0-9]*")) {
+                            System.out.println("Tipo de dato incorrecto, solo numeros");
+                            System.out.println("Ingrese numero de contacto valido:");
+                            palabra = entrada.next();
+                        }
+                        setNumeroCelular(Integer.parseInt(palabra));
+                        break;
+                    default:
+                        
+                        break;
+                }
+
+                break;
+            case "2":
+                for(int k=0;k< HorasMedicas.size(); k++){
+                System.out.println("¿Desea modificar" + HorasMedicas.get(k).getTitulo()+ "?");
+                opcion = entrada.next();
+                while (!opcion.matches("[Si No]")) {
+                System.out.println("Tipo de datos incorrectos, solo Si y No ");
+                System.out.println("Ingrese opcion valida:");
+                opcion = entrada.next();
+                }
+                if(opcion.equals("Si")){
+                    System.out.println("¿Que desea modificar?");
+                    System.out.println("ingrese 1 si quieres cambiar el Asunto");
+                    System.out.println("ingrese 2 si quieres cambiar el Nombre del medico");
+                    System.out.println("ingrese 3 si quieres cambiar la Fecha ");
+                    System.out.println("ingrese 4 si quieres cambiar la ubicacion");
+                    System.out.println("ingrese 5 si quieres numero de contacto");
+                    opcion = entrada.next();
+                    while (!opcion.matches("[12345]")) {
+                        System.out.println("Tipo de datos incorrectos, solo 1 , 2 , 3 , 4 y 5");
+                        System.out.println("Ingrese opcion valida:");
+                        opcion = entrada.next();
+                    }
+                                        
+                    switch(opcion){
+                    case "1":
+                        System.out.println("Ingrese asunto nuevo:");
+                        palabra = entrada.next();
+                        while (!palabra.matches("[a-zA-Z]*")) {
+                            System.out.println("Tipo de dato incorrecto, solo letras");
+                            System.out.println("Ingrese asunto valido:");
+                            palabra = entrada.next();
+                        }  
+                        HorasMedicas.get(k).setTutulo(palabra);
+                        break;
+                    case "2":
+                        System.out.println("Ingrese nombre del medico:");
+                        palabra = entrada.next(); 
+                        while (!palabra.matches("[a-zA-Z]*")) {
+                            System.out.println("Tipo de dato incorrecto, solo letras");
+                            System.out.println("Ingrese nombre valido:");
+                            palabra = entrada.next(); 
+                        }
+                        HorasMedicas.get(k).setMedico(palabra);
+                        break;
+                    case "3":
+                        System.out.println("Ingrese fecha:");
+                        palabra = entrada.next();
+                        while (!palabra.matches("[0-9]*")) {
+                            System.out.println("Tipo de dato incorrecto, solo numeros");
+                            System.out.println("Ingrese fecha valida:");
+                            palabra = entrada.next(); 
+                        }
+                        HorasMedicas.get(k).setFechaHora(Integer.parseInt(palabra));
+                        break;
+                    case "4":
+                        System.out.println("Ingrese Ubicacion:");
+                        palabra = entrada.next(); 
+                        while (!palabra.matches("[a-zA-Z]*")) {
+                            System.out.println("Tipo de dato incorrecto, solo letras");
+                            System.out.println("Ingrese ubicacion valida:");
+                            palabra = entrada.next(); 
+                        }
+                        HorasMedicas.get(k).setUbicacion(palabra);
+                        break;
+                    case "5":
+                        System.out.println("Ingrese numero de contacto:");
+                        palabra = entrada.next();
+                        while (!palabra.matches("[0-9]*")) {
+                            System.out.println("Tipo de dato incorrecto, solo numeros");
+                            System.out.println("Ingrese numero de contacto valido:");
+                            palabra = entrada.next();
+                        }
+                        HorasMedicas.get(k).setNumeroContacto(Integer.parseInt(palabra));
+                        break;
+                    default:
+                        
+                        break;
+                    }
+                }
+            }        
+                break;
+            case "3":
+                for(int k=0;k<Apoderado.size(); k++){
+                System.out.println("¿Desea modificar" + Apoderado.get(k).getNombre()+ "?");
+                opcion = entrada.next();
+                while (!opcion.matches("[Si No]")) {
+                System.out.println("Tipo de datos incorrectos, solo Si y No ");
+                System.out.println("Ingrese opcion valida:");
+                opcion = entrada.next();
+                }
+                if(opcion.equals("Si")){
+                    System.out.println("ingrese 1 si quieres cambiar el rut");
+                    System.out.println("ingrese 2 si quieres cambiar el nombre");
+                    System.out.println("ingrese 3 si quieres cambiar la direccion ");
+                    System.out.println("ingrese 4 si quieres parantesco");
+                    System.out.println("ingrese 5 si quieres numero celular");
+                    opcion = entrada.next();
+                    while (!opcion.matches("[12345]")) {
+                        System.out.println("Tipo de datos incorrectos, solo 1 , 2 , 3 , 4 y 5");
+                        System.out.println("Ingrese opcion valida:");
+                        opcion = entrada.next();
+                    }
+                    switch(opcion){
+                        case "1":
+                            System.out.println("Ingrese rut sin puntos ni guion:");
+                            palabra = entrada.next();
+                            while (!palabra.matches("[0-9]*")) {
+                                System.out.println("Tipo de dato incorrecto, solo numeros");
+                                System.out.println("Ingrese rut valido:");
+                                palabra = entrada.next();
+                            }  
+                            Apoderado.get(k).setRut(palabra);
+                            break;
+                        case "2":
+                            System.out.println("Ingrese nombre:");
+                            palabra = entrada.next(); 
+                            while (!palabra.matches("[a-zA-Z]*")) {
+                                System.out.println("Tipo de dato incorrecto, solo letras");
+                                System.out.println("Ingrese nombre valido:");
+                                palabra = entrada.next(); 
+                            }
+                            Apoderado.get(k).setNombre(palabra);
+                            break;
+                        case "3":
+                            System.out.println("Ingrese Direccion:");
+                            palabra = entrada.next();
+                            while (!palabra.matches("[a-zA-Z]*")) {
+                                System.out.println("Tipo de dato incorrecto, solo letras");
+                                System.out.println("Ingrese direccion valida:");
+                                palabra = entrada.next();
+                            }
+                            Apoderado.get(k).setDireccion(palabra);
+                            break;
+                        case "4":
+                            System.out.println("Ingrese parentesco:");
+                            palabra = entrada.next();
+                            while (!palabra.matches("[a-zA-Z]*")) {
+                                System.out.println("Tipo de dato incorrecto, solo letras");
+                                System.out.println("Ingrese direccion valida:");
+                                palabra = entrada.next();
+                            }
+                            Apoderado.get(k).setParentesco(palabra);
+                            break;
+                        case "5":
+                            System.out.println("Ingrese numero de contacto:");
+                            palabra = entrada.next();
+                            while (!palabra.matches("[0-9]*")) {
+                                System.out.println("Tipo de dato incorrecto, solo numeros");
+                                System.out.println("Ingrese numero de contacto valido:");
+                                palabra = entrada.next();
+                            }
+                            Apoderado.get(k).setNumeroCelular(Integer.parseInt(palabra));
+                            break;
+                        default:
+
+
+                            break;
+                    }
+                }  
+            }
+                
+                
+                break;
+            default:
+                
+                break;
+        }
+    }
+                
+    
 }

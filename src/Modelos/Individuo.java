@@ -2,15 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.adultosmayores;
+package Modelos;
 
 /**
  *
  * @author natty
  */
-import java.util.Scanner;
 
-public class Individuo{
+public abstract class Individuo{ //abstract?
     private String Rut;
     private String Nombre;
     private String Direccion;
