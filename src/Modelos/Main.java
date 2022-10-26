@@ -40,7 +40,8 @@ public class Main {
     System.out.println("Opcion 8 :  Agregar una hora medica");
     System.out.println("Opcion 9 :  Imprimir horas medicas");
     System.out.println("Opcion 10 : Modificar datos especificos");
-
+    System.out.println("Opcion 10 :  Moddificar datos especificos");
+    System.out.println("Opcion 11 :  Buscar dato Medicamento");
     opcion = entrada.nextInt();
     while (!String.valueOf(opcion).matches("[0-9]*")) {
         System.out.println("dato no esta completo , solo numeros");
@@ -183,6 +184,11 @@ public class Main {
             case 10:
                 adultos.ModificarDato();
                 break;
+            case 11:
+                System.out.println("Escriba el nombre del medicamento a buscar;");
+                input = (entrada.next());
+                    adultos.buscarMedicamento(input); 
+                break;
 
             default:
                 System.out.println("Opcion no valida");
@@ -200,6 +206,8 @@ public class Main {
         System.out.println("Opcion 8 :  Agregar una hora medica");
         System.out.println("Opcion 9 :  Imprimir horas medicas");
         System.out.println("Opcion 10 : Modificar datos especificos");
+        System.out.println("Opcion 10 :  Moddificar datos especificos");
+        System.out.println("Opcion 11 :  Buscar dato Medicamento");
 
         opcion = entrada.nextInt();
         while (!String.valueOf(opcion).matches("[0-9]*")) {
