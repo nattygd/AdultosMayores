@@ -39,6 +39,8 @@ public class Main {
     System.out.println("Opcion 10 : Modificar datos especificos");
     System.out.println("Opcion 10 :  Moddificar datos especificos");
     System.out.println("Opcion 11 :  Buscar dato Medicamento");
+    System.out.println("Opcion 12 :  Buscar celular");
+    System.out.println("Opcion 13 :  Llamada de emergencia");
     opcion = entrada.nextInt();
     while (!String.valueOf(opcion).matches("[0-9]*")) {
         System.out.println("dato no esta completo , solo numeros");
@@ -150,7 +152,10 @@ public class Main {
                 break;
                 
             case 4:
-                adultos.imprimirDatos();
+                if(adultos.getRut().equals("200132565")){
+                    adultos.imprimirDatos();
+                }else
+                    System.out.println("Necesita agregar Adulto mayor");
                 break;
                 
             case 5:
