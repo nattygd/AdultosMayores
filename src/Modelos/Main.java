@@ -12,9 +12,6 @@ import java.util.Scanner;
 public class Main {
     static Scanner entrada = new Scanner(System.in);
     
-    // arreglar (si se pide imprimir algo inexistente) Error
-    //modificacion de especificos 
-    //agregar funcion llamar a apoderados
 
     public static void main(String[] args) { 
     int opcion;
@@ -27,8 +24,8 @@ public class Main {
     AdultoMayor adultos;
     String input;
 
-    adultos = new AdultoMayor("200132565", "Diego", "Lugar", 85, 963667859); // arreglar
-
+    adultos = new AdultoMayor("200132565", "Diego", "Lugar", 85, 963667859); 
+   
     System.out.println("Opcion 0 :  Salir");
     System.out.println("Opcion 1 :  Registrar adulto mayor");
     System.out.println("Opcion 2 :  Agregar apoderado");
@@ -189,6 +186,12 @@ public class Main {
                 input = (entrada.next());
                     adultos.buscarMedicamento(input); 
                 break;
+            case 12:
+                adultos.Llamar();
+                break;
+            case 13:
+                adultos.LlamadaEmergencia();
+                break;
 
             default:
                 System.out.println("Opcion no valida");
@@ -208,7 +211,9 @@ public class Main {
         System.out.println("Opcion 10 : Modificar datos especificos");
         System.out.println("Opcion 10 :  Moddificar datos especificos");
         System.out.println("Opcion 11 :  Buscar dato Medicamento");
-
+        System.out.println("Opcion 12 :  Buscar celular");
+        System.out.println("Opcion 13 :  Llamada de emergencia");
+        
         opcion = entrada.nextInt();
         while (!String.valueOf(opcion).matches("[0-9]*")) {
             System.out.println("dato no esta completo , solo numeros");

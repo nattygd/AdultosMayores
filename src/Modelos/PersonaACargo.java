@@ -48,4 +48,10 @@ public class PersonaACargo extends Individuo{
         System.out.println("Parentesco : "+ Parentesco);
         System.out.println("//////////////////////////////////;");
     }
+    
+    @Override
+    public void Llamar(){
+        super.Llamar();
+        System.out.println(NumeroCelular);
+    }
 }

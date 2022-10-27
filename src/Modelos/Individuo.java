@@ -7,7 +7,7 @@ package Modelos;
  *
  * @author natty
  */
-public abstract class Individuo{ //abstract?
+public abstract class Individuo{ 
     private String Rut;
     private String Nombre;
     private String Direccion;
@@ -38,4 +38,9 @@ public abstract class Individuo{ //abstract?
     public void setDireccion(String Direccion){
         this.Direccion=Direccion;
     }
+    
+    public void Llamar(){
+        System.out.printf("Llamando ... ");
+    }
+    
 }
