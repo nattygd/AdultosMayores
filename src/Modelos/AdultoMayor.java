@@ -100,11 +100,15 @@ public class AdultoMayor extends Individuo {
     public void buscarMedicamento(String Buscar) { // Buscar por nombre 
         for (int j = 0; j < Medicamentos.size(); j++) {
             if (Medicamentos.get(j).getNombre().equals(Buscar)) {
+                System.out.println("//////////////////////////////////;"); //////////////////
+                
                 System.out.println("N° Medicamento : " + j);
                 System.out.println("Nombre : " + Medicamentos.get(j).getNombre());
                 System.out.println("Concentracion : " + Medicamentos.get(j).getConcentracion());
                 System.out.println("Frecuencia : " + Medicamentos.get(j).getFrecuencia());
                 System.out.println("Dosis : " + Medicamentos.get(j).getDosis());
+                
+                System.out.println("//////////////////////////////////;"); //////////////////
             return;
             }
         }
