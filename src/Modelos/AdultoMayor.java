@@ -193,15 +193,19 @@ public class AdultoMayor extends Individuo {
     public void Llamar(){
         super.Llamar();
         System.out.println(NumeroCelular);
+        System.out.println("//////////////////////////////////;");
     }
     
     public void LlamadaEmergencia(){
         if(Apoderado.size()>0){
-            for(int k=0;k< Apoderado.size(); k++){
+            for(int k=0; k<Apoderado.size(); k++){
                 Apoderado.get(k).Llamar();
+                System.out.println("//////////////////////////////////;");
             }
-            
-            System.out.println("No hay Apoderados agregados");
+        }else{
+        System.out.println("//////////////////////////////////;");
+        System.out.println("No hay apoderados agregados");
+        System.out.println("//////////////////////////////////;");
         }
     }
     
