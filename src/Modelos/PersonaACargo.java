@@ -51,6 +51,6 @@ public class PersonaACargo extends Individuo{
     
     public void Llamar(){
         super.Llamar();
-        System.out.println(NumeroCelular);
+        System.out.println(NumeroCelular + "Emergencia ");
     }
 }

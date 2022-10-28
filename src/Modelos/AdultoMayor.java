@@ -14,14 +14,15 @@ public class AdultoMayor extends Individuo {
     // atributos
     private int Edad;
     private int NumeroCelular;
-    private ArrayList<PersonaACargo> Apoderado = new ArrayList<>();
+    private  ArrayList<PersonaACargo> Apoderado;
     ArrayList<Medicamento> Medicamentos = new ArrayList<>();
-    private final ArrayList<HoraMedica> HorasMedicas = new ArrayList<>();
+    private  ArrayList<HoraMedica> HorasMedicas = new ArrayList<>();
 
     Scanner entrada = new Scanner(System.in);
   
     public AdultoMayor(String Rut, String Nombre, String Direccion, int Edad, int NumeroCelular) {
         super(Rut, Nombre, Direccion);
+        this.Apoderado = new ArrayList<>();
         this.Edad = Edad;
         this.NumeroCelular = NumeroCelular;
     }
@@ -100,7 +101,7 @@ public class AdultoMayor extends Individuo {
             System.out.println("//////////////////////////////////;"); //////////////////
         }
         
-        if(Medicamentos.size()>0){
+        if(!Medicamentos.isEmpty()){
             for (int i = 0; i < Medicamentos.size(); i++) {
                 System.out.println("N° Medicamento : " + i);
                 System.out.println("Nombre : " + Medicamentos.get(i).getNombre());
@@ -139,7 +140,7 @@ public class AdultoMayor extends Individuo {
             Apoderado.get(l).imprimir();
         }
         
-        if(Apoderado.size()>0){
+        if(!Apoderado.isEmpty()){
             for(int l=0;l< Apoderado.size(); l++){
                 Apoderado.get(l).imprimir();
             }

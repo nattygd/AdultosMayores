@@ -41,6 +41,6 @@ public abstract class Individuo{
     
     public void Llamar(){
         System.out.println("//////////////////////////////////;");
-        System.out.printf("Llamando ... ");
+        System.out.printf("Llamando a" + Nombre + "... "); 
     }
 }
