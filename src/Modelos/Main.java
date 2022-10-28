@@ -101,6 +101,10 @@ public class Main {
                 numeroCelular = Integer.parseInt(input);
 
                 adultos = new AdultoMayor(rut, nombre, direccion, edad, numeroCelular);
+                
+                System.out.println("//////////////////////////////////;");
+                System.out.println("Adulto mayor agregado");
+                System.out.println("//////////////////////////////////;");
                 break;
                 
             case 2:
@@ -146,6 +150,10 @@ public class Main {
                 numeroCelular = Integer.parseInt(input);
                 
                 adultos.agregarApoderado(rut, nombre, direccion, parentesco, numeroCelular);
+                
+                System.out.println("//////////////////////////////////;");
+                System.out.println("Persona a cargo agregada");
+                System.out.println("//////////////////////////////////;");
                 break;
                 
             case 3:

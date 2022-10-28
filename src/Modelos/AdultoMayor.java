@@ -60,6 +60,8 @@ public class AdultoMayor extends Individuo {
         Medicamento Medicamentos1 = new Medicamento();
         Medicamentos1.CrearMedicamentos();
         Medicamentos.add(Medicamentos1);
+        System.out.println("Medicamento agregado");
+        System.out.println("//////////////////////////////////;");
     }
 
     public void eliminarMedicamento(String Eliminar) { // Eliminar por nombre 
@@ -71,14 +73,15 @@ public class AdultoMayor extends Individuo {
                 return;
             }
         }
-        System.out.print("No existe ese medicamento");    
+        System.out.print("No existe el medicamento ingresado");    
     }
     
     public void eliminarMedicamento(int posicion) { //Eliminar por posicicon 
         if(posicion>Medicamentos.size()){
-            System.out.print("No existe ese medicamento");
+            System.out.print("No existe el medicamento ingresado");
         }else{
             Medicamentos.remove(posicion);
+            System.out.println("//////////////////////////////////;");
             System.out.println("Eliminado con exito");
             System.out.println("//////////////////////////////////;");
         }
@@ -88,7 +91,7 @@ public class AdultoMayor extends Individuo {
         System.out.println("//////////////////////////////////;"); //////////////////
 
         for (int i = 0; i < Medicamentos.size(); i++) {
-            System.out.println("N° Medicamento : " + i);
+            System.out.println("Nro Medicamento : " + i);
             System.out.println("Nombre : " + Medicamentos.get(i).getNombre());
             System.out.println("Concentracion : " + Medicamentos.get(i).getConcentracion());
             System.out.println("Frecuencia : " + Medicamentos.get(i).getFrecuencia());
@@ -102,7 +105,7 @@ public class AdultoMayor extends Individuo {
             if (Medicamentos.get(j).getNombre().equals(Buscar)) {
                 System.out.println("//////////////////////////////////;"); //////////////////
                 
-                System.out.println("N° Medicamento : " + j);
+                System.out.println("Nro Medicamento : " + j);
                 System.out.println("Nombre : " + Medicamentos.get(j).getNombre());
                 System.out.println("Concentracion : " + Medicamentos.get(j).getConcentracion());
                 System.out.println("Frecuencia : " + Medicamentos.get(j).getFrecuencia());
@@ -112,7 +115,7 @@ public class AdultoMayor extends Individuo {
             return;
             }
         }
-        System.out.print("No existe el medicamento indicado");    
+        System.out.print("No existe el medicamento ingresado");    
     }
 
     public void agregarApoderado(String Rut, String Nombre, String Direccion, String Parentesco, int NumeroCelular) {
@@ -129,8 +132,8 @@ public class AdultoMayor extends Individuo {
         String opcion;
     
         System.out.println("Nuevo Hora Medica");
-        System.out.println("ingrese 1 si quiere agregar Hora Medica completa");
-        System.out.println("ingrese 2 si quiere agregar asunto, fecha y hora de la cita medica"); 
+        System.out.println("ingrese 1 si quiere agregar hora medica completa");
+        System.out.println("ingrese 2 si quiere agregar solo el asunto, fecha y hora de la cita medica"); 
         opcion = entrada.next();
         
         while (!opcion.matches("[12]")) {
@@ -147,7 +150,10 @@ public class AdultoMayor extends Individuo {
             NuevaHora.CrearHoraMedica(opcion);
         }
         
-        HorasMedicas.add(NuevaHora); 
+        HorasMedicas.add(NuevaHora);
+        System.out.println("//////////////////////////////////;");
+        System.out.println("Hora medica agregada;");
+        System.out.println("//////////////////////////////////;");
     } 
 
     public void ListarHoras(){
@@ -163,7 +169,7 @@ public class AdultoMayor extends Individuo {
 
         System.out.println("Ingrese 1 para modificar dato del adulto mayor");
         System.out.println("Ingrese 2 para modificar dato de una hora medica");
-        System.out.println("Ingrese 3 para modificar dato ded las persona a cargo");
+        System.out.println("Ingrese 3 para modificar dato de la persona a cargo");
         opcion = entrada.next();
         while (!opcion.matches("[1234]")) {
             System.out.println("Tipo de datos incorrectos, solo 1 , 2 y 3 ");
@@ -194,7 +200,10 @@ public class AdultoMayor extends Individuo {
                             palabra = entrada.next();
                         }  
                         setRut(palabra);
+                        
+                        System.out.println("//////////////////////////////////;");
                         System.out.println("Dato cambiado");
+                        System.out.println("//////////////////////////////////;");
                         break;
                         
                     case "2":
@@ -206,7 +215,10 @@ public class AdultoMayor extends Individuo {
                             palabra = entrada.next(); 
                         }
                         setNombre(palabra);
+                        
+                        System.out.println("//////////////////////////////////;");
                         System.out.println("Dato cambiado");
+                        System.out.println("//////////////////////////////////;");
                         break;
                         
                     case "3":
@@ -218,7 +230,10 @@ public class AdultoMayor extends Individuo {
                             palabra = entrada.next();
                         }
                         setDireccion(palabra);
+                        
+                        System.out.println("//////////////////////////////////;");
                         System.out.println("Dato cambiado");
+                        System.out.println("//////////////////////////////////;");
                         break;
                         
                     case "4":
@@ -230,7 +245,10 @@ public class AdultoMayor extends Individuo {
                             palabra = entrada.next();
                         }
                         setEdad(Integer.parseInt(palabra));
+                        
+                        System.out.println("//////////////////////////////////;");
                         System.out.println("Dato cambiado");
+                        System.out.println("//////////////////////////////////;");
                         break;
                         
                     case "5":
@@ -242,7 +260,10 @@ public class AdultoMayor extends Individuo {
                             palabra = entrada.next();
                         }
                         setNumeroCelular(Integer.parseInt(palabra));
+                        
+                        System.out.println("//////////////////////////////////;");
                         System.out.println("Dato cambiado");
+                        System.out.println("//////////////////////////////////;");
                         break;
                         
                     default:
@@ -284,7 +305,10 @@ public class AdultoMayor extends Individuo {
                             palabra = entrada.next();
                         }  
                         HorasMedicas.get(k).setTutulo(palabra);
+                        
+                        System.out.println("//////////////////////////////////;");
                         System.out.println("Dato cambiado");
+                        System.out.println("//////////////////////////////////;");
                         break;
                         
                     case "2":
@@ -296,7 +320,10 @@ public class AdultoMayor extends Individuo {
                             palabra = entrada.next(); 
                         }
                         HorasMedicas.get(k).setMedico(palabra);
+                        
+                        System.out.println("//////////////////////////////////;");
                         System.out.println("Dato cambiado");
+                        System.out.println("//////////////////////////////////;");
                         break;
                         
                     case "3":
@@ -308,7 +335,10 @@ public class AdultoMayor extends Individuo {
                             palabra = entrada.next(); 
                         }
                         HorasMedicas.get(k).setFechaHora(Integer.parseInt(palabra));
+                        
+                        System.out.println("//////////////////////////////////;");
                         System.out.println("Dato cambiado");
+                        System.out.println("//////////////////////////////////;");
                         break;
                         
                     case "4":
@@ -320,7 +350,10 @@ public class AdultoMayor extends Individuo {
                             palabra = entrada.next(); 
                         }
                         HorasMedicas.get(k).setUbicacion(palabra);
+                        
+                        System.out.println("//////////////////////////////////;");
                         System.out.println("Dato cambiado");
+                        System.out.println("//////////////////////////////////;");
                         break;
                         
                     case "5":
@@ -332,7 +365,10 @@ public class AdultoMayor extends Individuo {
                             palabra = entrada.next();
                         }
                         HorasMedicas.get(k).setNumeroContacto(Integer.parseInt(palabra));
+                        
+                        System.out.println("//////////////////////////////////;");
                         System.out.println("Dato cambiado");
+                        System.out.println("//////////////////////////////////;");
                         break;
                         
                     default:
@@ -373,7 +409,10 @@ public class AdultoMayor extends Individuo {
                                 palabra = entrada.next();
                             }  
                             Apoderado.get(k).setRut(palabra);
+                            
+                            System.out.println("//////////////////////////////////;");
                             System.out.println("Dato cambiado");
+                            System.out.println("//////////////////////////////////;");
                             break;
                             
                         case "2":
@@ -385,7 +424,10 @@ public class AdultoMayor extends Individuo {
                                 palabra = entrada.next(); 
                             }
                             Apoderado.get(k).setNombre(palabra);
+                            
+                            System.out.println("//////////////////////////////////;");
                             System.out.println("Dato cambiado");
+                            System.out.println("//////////////////////////////////;");
                             break;
                             
                         case "3":
@@ -397,7 +439,10 @@ public class AdultoMayor extends Individuo {
                                 palabra = entrada.next();
                             }
                             Apoderado.get(k).setDireccion(palabra);
+                            
+                            System.out.println("//////////////////////////////////;");
                             System.out.println("Dato cambiado");
+                            System.out.println("//////////////////////////////////;");
                             break;
                             
                         case "4":
@@ -409,7 +454,10 @@ public class AdultoMayor extends Individuo {
                                 palabra = entrada.next();
                             }
                             Apoderado.get(k).setParentesco(palabra);
+                            
+                            System.out.println("//////////////////////////////////;");
                             System.out.println("Dato cambiado");
+                            System.out.println("//////////////////////////////////;");
                             break;
                             
                         case "5":
@@ -421,7 +469,10 @@ public class AdultoMayor extends Individuo {
                                 palabra = entrada.next();
                             }
                             Apoderado.get(k).setNumeroCelular(Integer.parseInt(palabra));
+                            
+                            System.out.println("//////////////////////////////////;");
                             System.out.println("Dato cambiado");
+                            System.out.println("//////////////////////////////////;");
                             break;
                             
                         default:

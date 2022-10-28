@@ -66,7 +66,7 @@ public class Medicamento {
     public void CrearMedicamentos() {
         String input;
 
-        System.out.println("Ingrese nombre del Medicamento:"); 
+        System.out.println("Ingrese nombre del medicamento:"); 
         input = entrada.next();
         while (!input.matches("[a-zA-Z]*")) {
             System.out.println("Tipo de datos incorrectos, solo letras:");
@@ -75,16 +75,16 @@ public class Medicamento {
         }
         this.Nombre = (input);
 
-        System.out.println("Ingrese Concentracion:");
+        System.out.println("Ingrese la concentracion (ej, 100mg) solo cantidad:");
         input = entrada.next();
         while (!input.matches("[0-9]*")) {
             System.out.println("Tipo de datos incorrectos, solo numeros:");
-            System.out.println("Ingrese fecha y hora valida:");
+            System.out.println("Ingrese la contracion valida:");
             input = entrada.next();
         }
         this.Concentracion = Integer.parseInt(input);
 
-        System.out.println("Ingrese frecuencia:");
+        System.out.println("Ingrese frecuencia (ej, ocho):");
         input = entrada.next();
         while (!input.matches("[a-zA-Z]*")) {
             System.out.println("Tipo de datos incorrectos, solo letras:");
@@ -93,11 +93,11 @@ public class Medicamento {
         }
         this.Frecuencia = input;
 
-        System.out.println("Ingrese Dosis:");
+        System.out.println("Ingrese Dosis (cantidad de pastillas, ej 2):");
         input = entrada.next();
         while (!input.matches("[0-9]*")) {
             System.out.println("Tipo de datos incorrectos, solo numeros:");
-            System.out.println("Ingrese fecha y hora valida:");
+            System.out.println("Ingrese la dosis valida:");
             input = entrada.next();
         }
         this.Dosis = Integer.parseInt(input);

@@ -126,7 +126,6 @@ public class HoraMedica {
             input = entrada.next();
         }
         this.NumeroContacto = (Integer.parseInt(input));
-        System.out.println("//////////////////////////////////;");
     }
 
 
