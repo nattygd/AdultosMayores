@@ -29,22 +29,23 @@ public class Main {
 
     adultos = new AdultoMayor("200132565", "Diego", "Lugar", 85, 963667859); // arreglar
 
-    System.out.println("Opcion 0 :  Salir");
-    System.out.println("Opcion 1 :  Registrar adulto mayor");
-    System.out.println("Opcion 2 :  Agregar apoderado");
-    System.out.println("Opcion 3 :  Imprimir datos del apoderado");
-    System.out.println("Opcion 4 :  Imprimir datos del adulto mayor");
-    System.out.println("Opcion 5 :  AgregarMedicamentos ");
-    System.out.println("Opcion 6 :  EliminarMedicamento ");
-    System.out.println("Opcion 7 :  ImprimirMedicamentos");
-    System.out.println("Opcion 8 :  Agregar una hora medica");
-    System.out.println("Opcion 9 :  Imprimir horas medicas");
-    System.out.println("Opcion 10 : Modificar datos especificos");
-    System.out.println("Opcion 11 :  Buscar dato Medicamento");
+    System.out.println("Opcion 0: Salir");
+    System.out.println("Opcion 1: Registrar adulto mayor");
+    System.out.println("Opcion 2: Agregar apoderado");
+    System.out.println("Opcion 3: Imprimir datos del apoderado");
+    System.out.println("Opcion 4: Imprimir datos del adulto mayor");
+    System.out.println("Opcion 5: AgregarMedicamentos ");
+    System.out.println("Opcion 6: EliminarMedicamento ");
+    System.out.println("Opcion 7: ImprimirMedicamentos");
+    System.out.println("Opcion 8: Agregar una hora medica");
+    System.out.println("Opcion 9: Imprimir horas medicas");
+    System.out.println("Opcion 10: Modificar datos especificos");
+    System.out.println("Opcion 11: Buscar dato medicamento");
+    System.out.println("Ingrese una opcion:");
     opcion = entrada.nextInt();
     while (!String.valueOf(opcion).matches("[0-9]*")) {
         System.out.println("dato no esta completo , solo numeros");
-        System.out.println("Ingrese opcion");
+        System.out.println("Ingrese opcion:");
         opcion = entrada.nextInt();
     }
 
@@ -52,7 +53,7 @@ public class Main {
 
         switch (opcion) {
             case 0:
-                System.out.print("Fin");
+                System.out.print("Ha salido exitosamente");
                 break;
                 
             case 1:
@@ -69,7 +70,7 @@ public class Main {
                 
                 while (!nombre.matches("[a-zA-Z]*")) {
                     System.out.println("Tipo de dato incorrecto, solo letras");
-                    System.out.println("Ingrese nombre valido:");
+                    System.out.println("Ingrese nombre valido:"); 
                     nombre = entrada.next();
                 }
 
@@ -160,7 +161,7 @@ public class Main {
                 break;
                 
             case 6:
-                System.out.println("Escriba el nombre del medicamento a eliminar o el Numero del Medicamento;");
+                System.out.println("Escriba el nombre del medicamento a eliminar o el numero del medicamento;");
                 input = (entrada.next());
                 if (input.matches("[0-9]*")) {
                     adultos.eliminarMedicamento(Integer.parseInt(input));
@@ -194,22 +195,23 @@ public class Main {
                 break;
         }
 
-        System.out.println("Opcion 0 :  Salir");
-        System.out.println("Opcion 1 :  Registrar adulto mayor");
-        System.out.println("Opcion 2 :  Agregar apoderado");
-        System.out.println("Opcion 3 :  Imprimir datos del apoderado");
-        System.out.println("Opcion 4 :  Imprimir datos del adulto mayor");
-        System.out.println("Opcion 5 :  AgregarMedicamentos ");
-        System.out.println("Opcion 6 :  EliminarMedicamento ");
-        System.out.println("Opcion 7 :  ImprimirMedicamentos");
-        System.out.println("Opcion 8 :  Agregar una hora medica");
-        System.out.println("Opcion 9 :  Imprimir horas medicas");
-        System.out.println("Opcion 10 : Modificar datos especificos");
-        System.out.println("Opcion 11 :  Buscar dato Medicamento");
+        System.out.println("Opcion 0: Salir");
+        System.out.println("Opcion 1: Registrar adulto mayor");
+        System.out.println("Opcion 2: Agregar apoderado");
+        System.out.println("Opcion 3: Imprimir datos del apoderado");
+        System.out.println("Opcion 4: Imprimir datos del adulto mayor");
+        System.out.println("Opcion 5: AgregarMedicamentos ");
+        System.out.println("Opcion 6: EliminarMedicamento ");
+        System.out.println("Opcion 7: ImprimirMedicamentos");
+        System.out.println("Opcion 8: Agregar una hora medica");
+        System.out.println("Opcion 9: Imprimir horas medicas");
+        System.out.println("Opcion 10: Modificar datos especificos");
+        System.out.println("Opcion 11: Buscar medicamento");
+        System.out.println("Ingrese una opcion:");
 
         opcion = entrada.nextInt();
         while (!String.valueOf(opcion).matches("[0-9]*")) {
-            System.out.println("dato no esta completo , solo numeros");
+            System.out.println("Tipo de dato incorrecto, solo numeros");
             System.out.println("Ingrese opcion");
             opcion = entrada.nextInt();
         }
