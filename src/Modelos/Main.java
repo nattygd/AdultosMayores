@@ -12,8 +12,7 @@ import java.util.Scanner;
 public class Main {
     static Scanner entrada = new Scanner(System.in);
     
-    // arreglar (si se pide imprimir algo inexistente) Error
-    //modificacion de especificos 
+    //arreglar (si se pide imprimir algo inexistente) Error
     //agregar funcion llamar a apoderados
 
     public static void main(String[] args) { 
@@ -41,6 +40,8 @@ public class Main {
     System.out.println("Opcion 9: Imprimir horas medicas");
     System.out.println("Opcion 10: Modificar datos especificos");
     System.out.println("Opcion 11: Buscar dato medicamento");
+    System.out.println("Opcion 12:  Buscar celular");
+    System.out.println("Opcion 13:  Llamada de emergencia");
     System.out.println("Ingrese una opcion:");
     opcion = entrada.nextInt();
     while (!String.valueOf(opcion).matches("[0-9]*")) {
@@ -162,6 +163,11 @@ public class Main {
                 
             case 4:
                 adultos.imprimirDatos();
+                
+                if(adultos.getRut().equals("200132565")){
+                    adultos.imprimirDatos();
+                }else
+                    System.out.println("Necesita agregar Adulto mayor");
                 break;
                 
             case 5:
@@ -197,6 +203,14 @@ public class Main {
                 input = (entrada.next());
                     adultos.buscarMedicamento(input); 
                 break;
+                
+            case 12:
+                adultos.Llamar();
+                break;
+                
+            case 13:
+                adultos.LlamadaEmergencia();
+                break;
 
             default:
                 System.out.println("Opcion no valida");
@@ -215,6 +229,8 @@ public class Main {
         System.out.println("Opcion 9: Imprimir horas medicas");
         System.out.println("Opcion 10: Modificar datos especificos");
         System.out.println("Opcion 11: Buscar medicamento");
+        System.out.println("Opcion 12:  Buscar celular");
+        System.out.println("Opcion 13:  Llamada de emergencia");
         System.out.println("Ingrese una opcion:");
 
         opcion = entrada.nextInt();

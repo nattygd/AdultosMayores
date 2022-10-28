@@ -99,7 +99,19 @@ public class AdultoMayor extends Individuo {
 
             System.out.println("//////////////////////////////////;"); //////////////////
         }
+        
+        if(Medicamentos.size()>0){
+            for (int i = 0; i < Medicamentos.size(); i++) {
+                System.out.println("N° Medicamento : " + i);
+                System.out.println("Nombre : " + Medicamentos.get(i).getNombre());
+                System.out.println("Concentracion : " + Medicamentos.get(i).getConcentracion());
+                System.out.println("Frecuencia : " + Medicamentos.get(i).getFrecuencia());
+                System.out.println("Dosis : " + Medicamentos.get(i).getDosis());
+            }
+        }else
+            System.out.println("No hay medicamentos");
     }
+    
     public void buscarMedicamento(String Buscar) { // Buscar por nombre 
         for (int j = 0; j < Medicamentos.size(); j++) {
             if (Medicamentos.get(j).getNombre().equals(Buscar)) {
@@ -124,8 +136,15 @@ public class AdultoMayor extends Individuo {
 
     public void imprimirAdultoACargo() {  
         for(int l=0;l< Apoderado.size(); l++){
-        Apoderado.get(l).imprimir();
-      }
+            Apoderado.get(l).imprimir();
+        }
+        
+        if(Apoderado.size()>0){
+            for(int l=0;l< Apoderado.size(); l++){
+                Apoderado.get(l).imprimir();
+            }
+        }else
+            System.out.println("Necesita Agregar adulto a cargo");
     }
 
     public void agregarHoraMedica() {
@@ -160,6 +179,29 @@ public class AdultoMayor extends Individuo {
         for(int k=0;k< HorasMedicas.size(); k++){
             HorasMedicas.get(k).ListarHoras1();
             HorasMedicas.get(k).crearTxt();
+        }
+        
+        if(HorasMedicas.size()>0){
+            for(int k=0;k< HorasMedicas.size(); k++){
+                HorasMedicas.get(k).ListarHoras1();
+                HorasMedicas.get(k).crearTxt();
+            }
+        }else
+            System.out.println("No hay Horas Agendadas");
+    }
+
+    public void Llamar(){
+        super.Llamar();
+        System.out.println(NumeroCelular);
+    }
+    
+    public void LlamadaEmergencia(){
+        if(Apoderado.size()>0){
+            for(int k=0;k< Apoderado.size(); k++){
+                Apoderado.get(k).Llamar();
+            }
+            
+            System.out.println("No hay Apoderados agregados");
         }
     }
     
