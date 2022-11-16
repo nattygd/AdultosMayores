@@ -7,6 +7,7 @@ package Modelos;
  *
  * @author natty
  */
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -176,16 +177,11 @@ public class AdultoMayor extends Individuo {
         System.out.println("//////////////////////////////////;");
     } 
 
-    public void ListarHoras(){
-        for(int k=0;k< HorasMedicas.size(); k++){
-            HorasMedicas.get(k).ListarHoras1();
-            HorasMedicas.get(k).crearTxt();
-        }
-        
+    public void ListarHoras() throws FileNotFoundException{
         if(HorasMedicas.size()>0){
             for(int k=0;k< HorasMedicas.size(); k++){
                 HorasMedicas.get(k).ListarHoras1();
-                HorasMedicas.get(k).crearTxt();
+                HorasMedicas.get(k).crearCsv();
             }
         }else
             System.out.println("No hay Horas Agendadas");

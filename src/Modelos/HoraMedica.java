@@ -7,9 +7,7 @@ package Modelos;
  *
  * @author natty
  */
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Scanner;
 
 
@@ -177,7 +175,46 @@ public class HoraMedica {
             System.out.println("Numero de contacto: " + NumeroContacto);
         }
     }
-  
+    
+    
+    public void crearCsv() throws FileNotFoundException{
+        FileWriter fw = null;
+        PrintWriter pw = null;
+        
+        try{
+            fw = new FileWriter("prueba.csv", true);
+            pw = new PrintWriter(fw);
+            
+            //StringBuffer csvHeader=new StringBuffer("");
+            StringBuffer csvData=new StringBuffer("");
+            //csvHeader.append("Asunto; Medico; Fecha y hora; Ubicacion; Numero contacto\n");
+            
+            //pw.write(csvHeader.toString());
+            
+            csvData.append(Titulo);
+            csvData.append(';');
+            if(!Medico.equals("vacio")){
+                csvData.append(Medico);
+            }
+            csvData.append(';');
+            csvData.append(FechaHora);
+            csvData.append(';');
+            csvData.append(Ubicacion);
+            csvData.append(';');
+            if(NumeroContacto!=0){
+                csvData.append(NumeroContacto);
+            }
+            csvData.append('\n');
+            pw.write(csvData.toString());
+            pw.flush();
+        }catch(IOException e){
+            System.out.println("Error");
+        }finally{
+            pw.close();
+        }
+    }
+    
+    /*
     public void crearTxt() {
         FileWriter fw = null;
         PrintWriter pw = null;
@@ -205,6 +242,7 @@ public class HoraMedica {
 
         System.out.println("***Se ha creado un txt con los horarios de las citas medicas***");
     }
+    */
     
     void setTutulo(String palabra) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
