@@ -3,11 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Modelos;
-//prueba branch
 /**
  *
  * @author natty
  */
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
@@ -16,7 +16,7 @@ public class Main {
     //arreglar (si se pide imprimir algo inexistente) Error
     //agregar funcion llamar a apoderados
 
-    public static void main(String[] args) { 
+    public static void main(String[] args) throws FileNotFoundException { 
     int opcion;
     int edad;
     int numeroCelular;
