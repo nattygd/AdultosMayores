@@ -16,6 +16,8 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        
     }
 
     /**
@@ -43,8 +45,8 @@ public class Menu extends javax.swing.JFrame {
         pnApoderado = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnRegistrarApoderado = new javax.swing.JButton();
+        btnMostrarApoderado = new javax.swing.JButton();
         pnMedicamentos = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -145,6 +147,11 @@ public class Menu extends javax.swing.JFrame {
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setText("Editar");
         btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditarMouseClicked(evt);
+            }
+        });
 
         btnDatos.setBackground(new java.awt.Color(7, 71, 143));
         btnDatos.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
@@ -242,15 +249,25 @@ public class Menu extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Apoderado");
 
-        jButton1.setBackground(new java.awt.Color(0, 130, 130));
-        jButton1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Registrar apoderado");
+        btnRegistrarApoderado.setBackground(new java.awt.Color(0, 130, 130));
+        btnRegistrarApoderado.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        btnRegistrarApoderado.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarApoderado.setText("Registrar apoderado");
+        btnRegistrarApoderado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistrarApoderadoMouseClicked(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(0, 130, 130));
-        jButton2.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Datos apoderado");
+        btnMostrarApoderado.setBackground(new java.awt.Color(0, 130, 130));
+        btnMostrarApoderado.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        btnMostrarApoderado.setForeground(new java.awt.Color(255, 255, 255));
+        btnMostrarApoderado.setText("Datos apoderado");
+        btnMostrarApoderado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMostrarApoderadoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -263,10 +280,10 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(111, 111, 111))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnRegistrarApoderado)
                         .addGap(74, 74, 74))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(btnMostrarApoderado)
                         .addGap(91, 91, 91))))
         );
         jPanel4Layout.setVerticalGroup(
@@ -275,9 +292,9 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(109, 109, 109)
                 .addComponent(jLabel1)
                 .addGap(43, 43, 43)
-                .addComponent(jButton1)
+                .addComponent(btnRegistrarApoderado)
                 .addGap(44, 44, 44)
-                .addComponent(jButton2)
+                .addComponent(btnMostrarApoderado)
                 .addContainerGap(243, Short.MAX_VALUE))
         );
 
@@ -304,6 +321,11 @@ public class Menu extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Agregar medicamento");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -314,11 +336,21 @@ public class Menu extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Mostrar medicamento");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(0, 130, 130));
         jButton5.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Eliminar medicamento");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -374,11 +406,21 @@ public class Menu extends javax.swing.JFrame {
         jButton6.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Agregar hora");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         jButton7.setBackground(new java.awt.Color(0, 130, 130));
         jButton7.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Mostrar horas");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -389,6 +431,11 @@ public class Menu extends javax.swing.JFrame {
         jButton8.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Buscar hora");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -489,6 +536,82 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void btnRegistrarApoderadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarApoderadoMouseClicked
+        // TODO add your handling code here:
+        CrearApoderado registrar=new CrearApoderado();
+        registrar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnRegistrarApoderadoMouseClicked
+
+    private void btnMostrarApoderadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarApoderadoMouseClicked
+        // TODO add your handling code here:
+        Modelos.AdultoMayor adultos;
+        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
+        
+        adultos.imprimirAdultoACargo();
+    }//GEN-LAST:event_btnMostrarApoderadoMouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        Modelos.AdultoMayor adultos;
+        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
+        
+        adultos.agregarMedicamentos();
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        Modelos.AdultoMayor adultos;
+        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
+        
+        adultos.imprimirMedicamentos();
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+        String aEliminar="";
+        Modelos.AdultoMayor adultos;
+        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
+        
+        if (aEliminar.matches("[0-9]*")) {
+            adultos.eliminarMedicamento(Integer.parseInt(aEliminar));
+        }else
+            adultos.eliminarMedicamento(aEliminar);
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        Modelos.AdultoMayor adultos;
+        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
+        
+        adultos.agregarHoraMedica();
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        Modelos.AdultoMayor adultos;
+        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
+        
+        //adultos.ListarHoras();
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+        String aBuscar="";
+        Modelos.AdultoMayor adultos;
+        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
+        
+        adultos.buscarMedicamento(aBuscar);
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void btnEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarMouseClicked
+        // TODO add your handling code here:
+        Modelos.AdultoMayor adultos;
+        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
+        
+        adultos.ModificarDato();
+    }//GEN-LAST:event_btnEditarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -530,9 +653,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnHorasMedicas;
     private javax.swing.JButton btnMedicamentos;
+    private javax.swing.JButton btnMostrarApoderado;
+    private javax.swing.JButton btnRegistrarApoderado;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;

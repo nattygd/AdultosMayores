@@ -5,6 +5,7 @@
 package Vista;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 /**
  *
  * @author natty
@@ -65,6 +66,11 @@ public class InicioSesion extends javax.swing.JFrame {
         btnCrearCuenta.setText("Crear cuenta");
         btnCrearCuenta.setMaximumSize(new java.awt.Dimension(122, 32));
         btnCrearCuenta.setMinimumSize(new java.awt.Dimension(122, 32));
+        btnCrearCuenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearCuentaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,6 +131,11 @@ public class InicioSesion extends javax.swing.JFrame {
         btnIngresar.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresar.setText("INGRESAR");
+        btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseClicked(evt);
+            }
+        });
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarActionPerformed(evt);
@@ -218,9 +229,6 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
-        Menu abrir=new Menu();
-        abrir.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void casillaContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaContraseniaActionPerformed
@@ -231,6 +239,31 @@ public class InicioSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnCrearCuentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearCuentaMouseClicked
+        // TODO add your handling code here:
+        CuentaNueva registrar=new CuentaNueva();
+        registrar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCrearCuentaMouseClicked
+
+    private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
+        // TODO add your handling code here:
+        String rut=CasillaUsuario.getText();
+        String contrasenia=String.valueOf(casillaContrasenia.getPassword());
+        
+        if (rut.length()!=0 && contrasenia.length()!=0){
+            //falta verificar que esté registrado
+            
+            JOptionPane.showMessageDialog(this, "Bienvenid@");
+            
+            Menu abrir=new Menu();
+            abrir.setVisible(true);
+            this.setVisible(false);
+        }else if(rut.length()==0 || contrasenia.length()==0){
+            JOptionPane.showMessageDialog(this, "Falta un dato, favor ingresar nuevamente");
+        }
+    }//GEN-LAST:event_btnIngresarMouseClicked
 
     /**
      * @param args the command line arguments

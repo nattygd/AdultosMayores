@@ -21,13 +21,14 @@ public class Main {
     int edad;
     int numeroCelular;
     String rut;
+    String contrasenia="jpdfog";
     String nombre;
     String direccion;
     String parentesco;
     AdultoMayor adultos;
     String input;
 
-    adultos = new AdultoMayor("200132565", "Diego", "Lugar", 85, 963667859); // arreglar
+    adultos = new AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); // arreglar
 
     System.out.println("Opcion 0: Salir");
     System.out.println("Opcion 1: Registrar adulto mayor");
@@ -102,7 +103,7 @@ public class Main {
                 }
                 numeroCelular = Integer.parseInt(input);
 
-                adultos = new AdultoMayor(rut, nombre, direccion, edad, numeroCelular);
+                adultos = new AdultoMayor(rut, contrasenia, nombre, direccion, edad, numeroCelular);
                 
                 System.out.println("//////////////////////////////////;");
                 System.out.println("Adulto mayor agregado");
