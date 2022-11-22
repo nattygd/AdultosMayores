@@ -231,6 +231,22 @@ public class AdultoMayor extends Individuo {
         }
     }
     
+    public void ApoderadoMenor(){ // no probado  ********************************************************
+        if(Apoderado.size()>0){
+            int auxiliar=0; 
+            for(int k=1; k<Apoderado.size(); k++){
+                if(Integer.parseInt(Apoderado.get(k).getRut())<Integer.parseInt(Apoderado.get(auxiliar).getRut())){
+                    auxiliar=k;
+                }
+            }
+            System.out.println("El apoderado mas joven es "+ Apoderado.get(auxiliar).getNombre());
+        }else{
+        System.out.println("//////////////////////////////////;");
+        System.out.println("No hay apoderados agregados");
+        System.out.println("//////////////////////////////////;");
+        }
+    }
+    
     public void ModificarDato(){
         String opcion;
         String palabra;
