@@ -108,7 +108,7 @@ public class HoraMedica {
         this.FechaHora = Integer.parseInt(input);
 
         System.out.println("Ingrese ubicacion (edificio):");
-        ubicacion = entrada.next(); // nextLine deveria serviir para los espacios (no se hacerlo) voy a probar
+        ubicacion = entrada.next(); 
         while (!ubicacion.matches("[a-zA-Z]*")) {
             System.out.println("Tipo de datos incorrectos, solo letras:");
             System.out.println("Ingrese ubicacion valida:");
@@ -148,10 +148,10 @@ public class HoraMedica {
         }
         this.FechaHora = Integer.parseInt(input);
 
-        System.out.println("Ingrese ubicacion (edificio):");
-        ubicacion = entrada.next(); // nextLine deveria serviir para los espacios (no se hacerlo) voy a probar
-        while (!ubicacion.matches("[a-zA-Z]*")) {
-            System.out.println("Tipo de datos incorrectos, solo letras:");
+        System.out.println("Ingrese ubicacion ejemplo (Casablanca-21):");
+        ubicacion = entrada.next(); 
+        while (!ubicacion.matches("[a-zA-Z0-9]*\\-+\\d{1,5}")) {
+            System.out.println("Tipo de dato incorrecto, ejemplo : (Casablanca-21)");
             System.out.println("Ingrese ubicacion valida:");
             ubicacion = entrada.next();
         }
@@ -162,7 +162,7 @@ public class HoraMedica {
     }
 
 
-    public void ListarHoras1() {
+    public void ListarHoras() {
         System.out.println("Horas Medicas:");
 
         System.out.println("Asunto: " + Titulo);

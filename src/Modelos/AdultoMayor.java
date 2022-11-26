@@ -7,6 +7,7 @@ package Modelos;
  *
  * @author natty
  */
+import static Modelos.Main.entrada;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -205,13 +206,14 @@ public class AdultoMayor extends Individuo {
     public void ListarHoras() throws FileNotFoundException{
         if(HorasMedicas.size()>0){
             for(int k=0;k< HorasMedicas.size(); k++){
-                HorasMedicas.get(k).ListarHoras1();
+                HorasMedicas.get(k).ListarHoras();
                 HorasMedicas.get(k).crearCsv();
             }
         }else
             System.out.println("No hay Horas Agendadas");
     }
 
+    @Override
     public void Llamar(){
         super.Llamar();
         System.out.println(NumeroCelular);
@@ -244,6 +246,42 @@ public class AdultoMayor extends Individuo {
         System.out.println("//////////////////////////////////;");
         System.out.println("No hay apoderados agregados");
         System.out.println("//////////////////////////////////;");
+        }
+    }
+    
+    public void BuscarCelularNumeroFinal(){ //////////////probar *********************************************************
+        System.out.println("Esbriba el numero final de los celulares que desea buscar");
+        int flag =0;
+            String input = entrada.next();
+            int UltimoNumero;
+            while (!input.matches("[0-9]")) {
+                System.out.println("Tipo de dato incorrecto, solo un numero");
+                System.out.println("Ingrese numero de contacto valido:");
+                input = entrada.next();
+            }
+            UltimoNumero=Integer.parseInt(input);
+        if(!this.getRut().equals("200132565")){
+            if((this.getNumeroCelular()%10)==UltimoNumero){   
+              System.out.println(this.getNombre()+" numero :" + this.NumeroCelular);
+              flag=1;
+            } 
+            }else{
+                System.out.println("Necesita agregar Adulto mayor");
+            }
+        if(Apoderado.size()>0){
+            for(int k=0; k<Apoderado.size(); k++){
+              if((Apoderado.get(k).getNumeroCelular()%10)==UltimoNumero){   
+                System.out.println(Apoderado.get(k).getNombre()+" numero :" + Apoderado.get(k).getNumeroCelular());
+                flag=1;
+              }
+            }
+        }else{
+        System.out.println("//////////////////////////////////;");
+        System.out.println("No hay apoderados agregados");
+        System.out.println("//////////////////////////////////;");
+        }
+        if(flag==0){
+            System.out.println("No se encontro ningun numero terminado en "+ UltimoNumero);
         }
     }
     
