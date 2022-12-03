@@ -18,11 +18,13 @@ public class AdultoMayor extends Individuo {
     private  ArrayList<PersonaACargo> Apoderado;
     ArrayList<Medicamento> Medicamentos = new ArrayList<>();
     private  ArrayList<HoraMedica> HorasMedicas = new ArrayList<>();
+    private String Contrasenia;
 
     Scanner entrada = new Scanner(System.in);
   
-    public AdultoMayor(String Rut, String Nombre, String Direccion, int Edad, int NumeroCelular) {
+    public AdultoMayor(String Rut, String Contrasenia, String Nombre, String Direccion, int Edad, int NumeroCelular) {
         super(Rut, Nombre, Direccion);
+        this.Contrasenia=Contrasenia;
         this.Apoderado = new ArrayList<>();
         this.Edad = Edad;
         this.NumeroCelular = NumeroCelular;
@@ -36,6 +38,10 @@ public class AdultoMayor extends Individuo {
     public int getNumeroCelular() {
         return this.NumeroCelular;
     }
+    
+    public String getContrasenia() {
+        return Contrasenia;
+    }
 
     // mutadores
     public void setEdad(int Edad) {
@@ -45,8 +51,27 @@ public class AdultoMayor extends Individuo {
     public void setNumeroCelular(int NumeroCelular) {
         this.NumeroCelular = NumeroCelular;
     }
+
+    public void setContrasenia(String Contrasenia) {
+        this.Contrasenia = Contrasenia;
+    }
+
+    
     
     // comportamientos
+    
+    /*
+    public static boolean autentificar(String rut, String contrasenia){
+        if (getRut()!=null){
+            if (rut.equals(getRut()) && contrasenia.equals(Contrasenia)){
+                return true;
+            }else
+                return false;
+        }else
+            return false;
+    }
+    */
+    
     public void imprimirDatos() {
         System.out.println("Rut del adulto mayor: " + getRut());
         System.out.println("Nombre del adulto mayor: " + getNombre());
