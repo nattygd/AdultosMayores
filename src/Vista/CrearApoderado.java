@@ -191,8 +191,9 @@ public class CrearApoderado extends javax.swing.JFrame {
         int numeroInt=0;
         boolean error=false;
         
-        Modelos.AdultoMayor adultos;
-        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
+        Modelos.Main principal=new Modelos.Main();
+        
+        Modelos.AdultoMayor adultos=null;
         
         String rut=casillaRut.getText();
         String nombre=casillaNombre.getText();
@@ -224,6 +225,7 @@ public class CrearApoderado extends javax.swing.JFrame {
         
         if (error!=true){
             adultos.agregarApoderado(rut, nombre, direccion, parentesco, numeroInt);
+            //principal.crearAdulto(adultos);
 
             JOptionPane.showMessageDialog(this, "Persona a cargo registrada");
             Menu registrada=new Menu();
@@ -268,6 +270,7 @@ public class CrearApoderado extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxParentesco;

@@ -7,7 +7,10 @@ package Modelos;
  *
  * @author natty
  */
+import Vista.InicioSesion;
+import Vista.Menu;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -15,7 +18,220 @@ public class Main {
     
     //arreglar (si se pide imprimir algo inexistente) Error
     //agregar funcion llamar a apoderados
+    
+    public static void main(String[] args) throws FileNotFoundException, InterruptedException{
+        ArrayList <AdultoMayor> adultosMayores=new ArrayList<>();
+        AdultoMayor adultoInicial=new AdultoMayor("123", "asd", "Diego", "Lugar", 85, 963667859); 
+        adultosMayores.add(adultoInicial);
+        String input;
+        int edad;
+        int numeroCelular;
+        String rut;
+        String nombre;
+        String direccion;
+        String parentesco;
+        String contrasenia="";
+        
+        InicioSesion login=new InicioSesion();
+        Menu menuOpciones=new Menu();
+        int comandoLogin=0;
+        
+        while(comandoLogin!=3){
+            login.setVisible(true);
+            int comandoOpciones=0;
+            Thread.sleep(10000);
+            
+            if (login.getComando()==1){
+                for (int i=0; i<adultosMayores.size(); i++){
+                    if (adultosMayores.get(i).getRut().equals(login.getAdulto().getRut()) && adultosMayores.get(i).getContrasenia().equals(login.getAdulto().getContrasenia())){
+                        System.out.println("Bienvenid@");
+                        login.setVisible(false);
+                        menuOpciones.setVisible(true);
+                        Thread.sleep(10000);
+                        
+                        comandoOpciones=menuOpciones.getComando();
+                        switch(comandoOpciones){
+                            //ADULTO MAYOR
+                            case 1:
+                                adultosMayores.get(i).imprimirDatos();
+                                break;
+                                
+                            //APODERADO
+                            case 2:
+                                System.out.println("Ingrese rut sin punto ni guion:");
+                                rut = entrada.next();
+                                while (!rut.matches("[0-9]*")) {
+                                    System.out.println("Tipo de dato incorrecto, solo numeros");
+                                    System.out.println("Ingrese rut valido:");
+                                    rut = entrada.next();
+                                }
 
+                                System.out.println("Ingrese nombre:");
+                                nombre = entrada.next();
+                                while (!nombre.matches("[a-zA-Z]*")) {
+                                    System.out.println("Tipo de dato incorrecto, solo letras");
+                                    System.out.println("Ingrese nombre valido:");
+                                    nombre = entrada.next();
+                                }
+
+                                System.out.println("Ingrese direccion:");
+                                direccion = entrada.next();
+                                while (!direccion.matches("[a-zA-Z]*")) {
+                                    System.out.println("Tipo de dato incorrecto, solo letras");
+                                    System.out.println("Ingrese direccion valida:");
+                                    direccion = entrada.next();
+                                }
+
+                                System.out.println("Ingrese parentesco con el adulto mayor:");
+                                parentesco = entrada.next();
+                                while (!parentesco.matches("[a-zA-Z]*")) {
+                                    System.out.println("Tipo de dato incorrecto, solo letras");
+                                    System.out.println("Ingrese parentesco valido:");
+                                    parentesco = entrada.next();
+                                }
+                                
+                                System.out.println("Ingrese numero de contacto:");
+                                input = entrada.next();
+                                while (!input.matches("[0-9]*")) {
+                                    System.out.println("Tipo de dato incorrecto, solo numeros");
+                                    System.out.println("Ingrese numero de contacto valido:");
+                                    input = entrada.next();
+                                }
+                                numeroCelular = Integer.parseInt(input);
+                
+                                adultosMayores.get(i).agregarApoderado(rut, nombre, direccion, parentesco, numeroCelular);
+                
+                                System.out.println("//////////////////////////////////;");
+                                System.out.println("Persona a cargo agregada");
+                                System.out.println("//////////////////////////////////;");
+                                break;
+                                
+                            case 3:
+                                adultosMayores.get(i).imprimirAdultoACargo();
+                                break;
+                            
+                            //MEDICAMENTOS
+                            case 4:
+                                adultosMayores.get(i).agregarMedicamentos();
+                                break;
+                                
+                            case 5:
+                                adultosMayores.get(i).imprimirMedicamentos();
+                                break;
+                                
+                            case 6:
+                                System.out.println("Escriba el nombre del medicamento a eliminar o el numero del medicamento;");
+                                input = (entrada.next());
+                                
+                                if (input.matches("[0-9]*")) {
+                                    adultosMayores.get(i).eliminarMedicamento(Integer.parseInt(input));
+                                } else
+                                    adultosMayores.get(i).eliminarMedicamento(input);
+                                break;
+                               
+                            //HORAS MEDICAS
+                            case 7:
+                                adultosMayores.get(i).agregarHoraMedica();
+                                break;
+                                
+                            case 8:
+                                adultosMayores.get(i).ListarHoras();
+                                break;
+                                
+                            case 9:
+                                //adultosMayores.get(i).buscarHora();
+                                break;
+                            
+                            //EDITAR
+                            case 10:
+                                adultosMayores.get(i).ModificarDato();
+                                break;
+                                
+                            case 11:
+                                adultosMayores.get(i).Llamar();
+                                break;
+                                
+                            case 12:
+                                adultosMayores.get(i).LlamadaEmergencia();
+                                break;
+                        }
+                        
+                        comandoLogin=0;
+                        comandoOpciones=0;
+                        menuOpciones.setVisible(false);
+                    }else
+                        System.out.println("Usuario o contrasenia incorrecta");
+                }
+            }
+            
+            if (login.getComando()==2){
+                //AGREGAR ADULTO MAYOR
+                System.out.println("Ingrese rut sin puntos ni guion:");
+                rut = entrada.next();
+                while (!rut.matches("[0-9]*")) {
+                    System.out.println("Tipo de dato incorrecto, solo numeros");
+                    System.out.println("Ingrese rut valido:");
+                    rut = entrada.next();
+                }
+                
+                System.out.println("Ingrese una contrasenia:");
+                contrasenia=entrada.next();
+                while (!contrasenia.matches("[a-zA-Z]*")) {
+                    System.out.println("Tipo de dato incorrecto, solo letras");
+                    System.out.println("Ingrese contrasenia valida:"); 
+                    contrasenia = entrada.next();
+                }
+
+                System.out.println("Ingrese nombre:");
+                nombre = entrada.next();
+                while (!nombre.matches("[a-zA-Z]*")) {
+                    System.out.println("Tipo de dato incorrecto, solo letras");
+                    System.out.println("Ingrese nombre valido:"); 
+                    nombre = entrada.next();
+                }
+
+                System.out.println("Ingrese Direccion:");
+                direccion = entrada.next();
+                while (!direccion.matches("[a-zA-Z]*")) {
+                    System.out.println("Tipo de dato incorrecto, solo letras");
+                    System.out.println("Ingrese direccion valida:");
+                    direccion = entrada.next();
+                }
+
+                System.out.println("Ingrese edad:");
+                input = entrada.next();
+                while (!input.matches("[0-9]*")) {
+                    System.out.println("Tipo de dato incorrecto, solo numeros");
+                    System.out.println("Ingrese edad valida:");
+                    input = entrada.next();
+                }
+                edad = Integer.parseInt(input);
+
+                System.out.println("Ingrese numero de contacto:");
+                input = entrada.next();
+                while (!input.matches("[0-9]*")) {
+                    System.out.println("Tipo de dato incorrecto, solo numeros");
+                    System.out.println("Ingrese numero de contacto valido:");
+                    input = entrada.next();
+                }
+                numeroCelular = Integer.parseInt(input);
+
+                AdultoMayor adultoNuevo = new AdultoMayor(rut, contrasenia, nombre, direccion, edad, numeroCelular);
+                adultosMayores.add(adultoNuevo);
+                
+                
+                System.out.println("//////////////////////////////////;");
+                System.out.println("Adulto mayor agregado");
+                System.out.println("//////////////////////////////////;");
+                
+                comandoLogin=0;
+            }
+            
+            login.matarDatos();
+        }
+    }
+    
+    /*
     public static void main(String[] args) throws FileNotFoundException { 
     int opcion;
     int edad;
@@ -142,7 +358,25 @@ public class Main {
                     System.out.println("Ingrese parentesco valido:");
                     parentesco = entrada.next();
                 }
+   System.out.println("Ingrese rut valido:");
+                    rut = entrada.next();
+                }
 
+                System.out.println("Ingrese nombre:");
+                nombre = entrada.next();
+                while (!nombre.matches("[a-zA-Z]*")) {
+                    System.out.println("Tipo de dato incorrecto, solo letras");
+                    System.out.println("Ingrese nombre valido:");
+                    nombre = entrada.next();
+                }
+
+                System.out.println("Ingrese direccion:");
+                direccion = entrada.next();
+                while (!direccion.matches("[a-zA-Z]*")) {
+                    System.out.println("Tipo de dato incorrecto, solo letras");
+                    System.out.println("Ingrese direccion valida:");
+                    direccion = entrada.next();
+                }
                 System.out.println("Ingrese numero de contacto:");
                 input = entrada.next();
                 while (!input.matches("[0-9]*")) {
@@ -245,6 +479,8 @@ public class Main {
 
     System.out.println("FIN");
     }
+    
+    */
   /*
    * letras ([a-zA-Z]*)
    * Numeros([0-9]*)

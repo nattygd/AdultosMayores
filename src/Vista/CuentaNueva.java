@@ -239,6 +239,7 @@ public class CuentaNueva extends javax.swing.JFrame {
         boolean error=false;
         
         Modelos.AdultoMayor adultos;
+        Modelos.Main principal=new Modelos.Main();
         
         String rut=casillaRut.getText();
         String contrasenia=String.valueOf(casillaContrasenia.getPassword());
@@ -275,11 +276,13 @@ public class CuentaNueva extends javax.swing.JFrame {
         
         if (error!=true){
             adultos=new Modelos.AdultoMayor(rut, contrasenia, nombre, direccion, edadInt, numeroInt);
+            //principal.crearAdulto(adultos);
 
             JOptionPane.showMessageDialog(this, "Su cuenta ha sido creada");
             Menu registrada=new Menu();
             registrada.setVisible(true);
             this.setVisible(false);
+            
         }
     }//GEN-LAST:event_btnRegistrarseMouseClicked
 

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
+import Modelos.AdultoMayor;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
@@ -19,6 +20,11 @@ public class InicioSesion extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    
+    String usuario=null;
+    String contrasenia=null;
+    AdultoMayor adulto=null;
+    int comando=0;
     
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
@@ -242,27 +248,15 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void btnCrearCuentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearCuentaMouseClicked
         // TODO add your handling code here:
-        CuentaNueva registrar=new CuentaNueva();
-        registrar.setVisible(true);
-        this.setVisible(false);
+        comando=2;
     }//GEN-LAST:event_btnCrearCuentaMouseClicked
 
     private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
         // TODO add your handling code here:
-        String rut=CasillaUsuario.getText();
-        String contrasenia=String.valueOf(casillaContrasenia.getPassword());
-        
-        if (rut.length()!=0 && contrasenia.length()!=0){
-            //falta verificar que esté registrado
-            
-            JOptionPane.showMessageDialog(this, "Bienvenid@");
-            
-            Menu abrir=new Menu();
-            abrir.setVisible(true);
-            this.setVisible(false);
-        }else if(rut.length()==0 || contrasenia.length()==0){
-            JOptionPane.showMessageDialog(this, "Falta un dato, favor ingresar nuevamente");
-        }
+        usuario=this.CasillaUsuario.getText();
+        contrasenia=String.valueOf(this.casillaContrasenia.getPassword());
+        adulto=new Modelos.AdultoMayor(usuario, contrasenia, "", "", 0, 0);
+        comando=1;
     }//GEN-LAST:event_btnIngresarMouseClicked
 
     /**
@@ -295,11 +289,24 @@ public class InicioSesion extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InicioSesion().setVisible(true);
+                //new InicioSesion().setVisible(true);
             }
         });
     }
 
+    public AdultoMayor getAdulto() {
+        return adulto;
+    }
+
+    public int getComando() {
+        return comando;
+    }
+    
+    public void matarDatos(){
+        casillaContrasenia.setText(null);
+        CasillaUsuario.setText(null);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CasillaUsuario;
     private javax.swing.JButton btnCrearCuenta;

@@ -15,10 +15,10 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        
-        
+        this.setLocationRelativeTo(null);  
     }
+    
+    int comando=0;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,33 +32,33 @@ public class Menu extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
         pnPrincipal = new javax.swing.JPanel();
-        lblEmergencia = new javax.swing.JLabel();
-        lblLlamar = new javax.swing.JLabel();
         btnApoderado = new javax.swing.JButton();
         btnMedicamentos = new javax.swing.JButton();
         btnHorasMedicas = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
-        btnDatos = new javax.swing.JButton();
+        btnDatos1 = new javax.swing.JButton();
+        btnEmergencia = new javax.swing.JButton();
+        btnLlamar = new javax.swing.JButton();
         tabPn = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         pnApoderado = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblApoderado = new javax.swing.JLabel();
         btnRegistrarApoderado = new javax.swing.JButton();
         btnMostrarApoderado = new javax.swing.JButton();
         pnMedicamentos = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        lblMedicamentos = new javax.swing.JLabel();
+        btnAgregarMedicamento = new javax.swing.JButton();
+        btnMostrarMedicamento = new javax.swing.JButton();
+        btnEliminarMedicamento = new javax.swing.JButton();
         pnHoras = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        lblHorasMedicas = new javax.swing.JLabel();
+        btnAgregarHora = new javax.swing.JButton();
+        btnMostrarHoras = new javax.swing.JButton();
+        btnBuscarHora = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(8, 153, 112));
@@ -87,8 +87,8 @@ public class Menu extends javax.swing.JFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(746, Short.MAX_VALUE)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(716, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
         jPanel7Layout.setVerticalGroup(
@@ -99,13 +99,9 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 50));
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 50));
 
         pnPrincipal.setBackground(new java.awt.Color(255, 255, 255));
-
-        lblEmergencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/emergencia.png"))); // NOI18N
-
-        lblLlamar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/telefono.png"))); // NOI18N
 
         btnApoderado.setBackground(new java.awt.Color(7, 71, 143));
         btnApoderado.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
@@ -153,13 +149,46 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btnDatos.setBackground(new java.awt.Color(7, 71, 143));
-        btnDatos.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        btnDatos.setForeground(new java.awt.Color(255, 255, 255));
-        btnDatos.setText("Adulto mayor");
-        btnDatos.addActionListener(new java.awt.event.ActionListener() {
+        btnDatos1.setBackground(new java.awt.Color(7, 71, 143));
+        btnDatos1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        btnDatos1.setForeground(new java.awt.Color(255, 255, 255));
+        btnDatos1.setText("Adulto mayor");
+        btnDatos1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDatos1MouseClicked(evt);
+            }
+        });
+        btnDatos1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDatosActionPerformed(evt);
+                btnDatos1ActionPerformed(evt);
+            }
+        });
+
+        btnEmergencia.setBackground(new java.awt.Color(255, 255, 255));
+        btnEmergencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/emergencia.png"))); // NOI18N
+        btnEmergencia.setBorder(null);
+        btnEmergencia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEmergenciaMouseClicked(evt);
+            }
+        });
+        btnEmergencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmergenciaActionPerformed(evt);
+            }
+        });
+
+        btnLlamar.setBackground(new java.awt.Color(255, 255, 255));
+        btnLlamar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/telefono.png"))); // NOI18N
+        btnLlamar.setBorder(null);
+        btnLlamar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLlamarMouseClicked(evt);
+            }
+        });
+        btnLlamar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLlamarActionPerformed(evt);
             }
         });
 
@@ -168,29 +197,27 @@ public class Menu extends javax.swing.JFrame {
         pnPrincipalLayout.setHorizontalGroup(
             pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(88, Short.MAX_VALUE)
                 .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnPrincipalLayout.createSequentialGroup()
-                        .addComponent(lblLlamar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblEmergencia)
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPrincipalLayout.createSequentialGroup()
-                        .addGap(0, 82, Short.MAX_VALUE)
-                        .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPrincipalLayout.createSequentialGroup()
-                                .addComponent(btnEditar)
-                                .addGap(164, 164, 164))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPrincipalLayout.createSequentialGroup()
-                                .addComponent(btnApoderado)
-                                .addGap(125, 125, 125))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPrincipalLayout.createSequentialGroup()
-                                .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnDatos)
-                                    .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnMedicamentos)
-                                        .addComponent(btnHorasMedicas)))
-                                .addGap(107, 107, 107))))))
+                        .addComponent(btnEditar)
+                        .addGap(164, 164, 164))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPrincipalLayout.createSequentialGroup()
+                        .addComponent(btnApoderado)
+                        .addGap(125, 125, 125))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPrincipalLayout.createSequentialGroup()
+                        .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnDatos1)
+                            .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnMedicamentos)
+                                .addComponent(btnHorasMedicas)))
+                        .addGap(107, 107, 107))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPrincipalLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(btnLlamar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEmergencia)
+                .addGap(14, 14, 14))
         );
         pnPrincipalLayout.setVerticalGroup(
             pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,11 +225,11 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnPrincipalLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblLlamar))
+                        .addComponent(btnEmergencia))
                     .addGroup(pnPrincipalLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(btnDatos)
-                        .addGap(29, 29, 29)
+                        .addGap(105, 105, 105)
+                        .addComponent(btnDatos1)
+                        .addGap(18, 18, 18)
                         .addComponent(btnApoderado)
                         .addGap(36, 36, 36)
                         .addComponent(btnMedicamentos)
@@ -210,9 +237,9 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(btnHorasMedicas)
                         .addGap(35, 35, 35)
                         .addComponent(btnEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                        .addComponent(lblEmergencia)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addComponent(btnLlamar)))
+                .addGap(14, 14, 14))
         );
 
         getContentPane().add(pnPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 560));
@@ -245,9 +272,9 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Apoderado");
+        lblApoderado.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        lblApoderado.setForeground(new java.awt.Color(0, 0, 0));
+        lblApoderado.setText("Apoderado");
 
         btnRegistrarApoderado.setBackground(new java.awt.Color(0, 130, 130));
         btnRegistrarApoderado.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
@@ -256,6 +283,11 @@ public class Menu extends javax.swing.JFrame {
         btnRegistrarApoderado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRegistrarApoderadoMouseClicked(evt);
+            }
+        });
+        btnRegistrarApoderado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarApoderadoActionPerformed(evt);
             }
         });
 
@@ -268,6 +300,11 @@ public class Menu extends javax.swing.JFrame {
                 btnMostrarApoderadoMouseClicked(evt);
             }
         });
+        btnMostrarApoderado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarApoderadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -277,7 +314,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(89, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lblApoderado)
                         .addGap(111, 111, 111))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(btnRegistrarApoderado)
@@ -290,7 +327,7 @@ public class Menu extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(109, 109, 109)
-                .addComponent(jLabel1)
+                .addComponent(lblApoderado)
                 .addGap(43, 43, 43)
                 .addComponent(btnRegistrarApoderado)
                 .addGap(44, 44, 44)
@@ -313,42 +350,42 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Medicamentos");
+        lblMedicamentos.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        lblMedicamentos.setForeground(new java.awt.Color(0, 0, 0));
+        lblMedicamentos.setText("Medicamentos");
 
-        jButton3.setBackground(new java.awt.Color(0, 130, 130));
-        jButton3.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Agregar medicamento");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAgregarMedicamento.setBackground(new java.awt.Color(0, 130, 130));
+        btnAgregarMedicamento.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        btnAgregarMedicamento.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarMedicamento.setText("Agregar medicamento");
+        btnAgregarMedicamento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                btnAgregarMedicamentoMouseClicked(evt);
             }
         });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarMedicamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnAgregarMedicamentoActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(0, 130, 130));
-        jButton4.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Mostrar medicamento");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnMostrarMedicamento.setBackground(new java.awt.Color(0, 130, 130));
+        btnMostrarMedicamento.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        btnMostrarMedicamento.setForeground(new java.awt.Color(255, 255, 255));
+        btnMostrarMedicamento.setText("Mostrar medicamento");
+        btnMostrarMedicamento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                btnMostrarMedicamentoMouseClicked(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(0, 130, 130));
-        jButton5.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Eliminar medicamento");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEliminarMedicamento.setBackground(new java.awt.Color(0, 130, 130));
+        btnEliminarMedicamento.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        btnEliminarMedicamento.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarMedicamento.setText("Eliminar medicamento");
+        btnEliminarMedicamento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
+                btnEliminarMedicamentoMouseClicked(evt);
             }
         });
 
@@ -360,26 +397,26 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(92, 92, 92)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(lblMedicamentos)
                         .addGap(11, 11, 11))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton5)
+                        .addComponent(btnEliminarMedicamento)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton4)
-                            .addComponent(jButton3))))
+                            .addComponent(btnMostrarMedicamento)
+                            .addComponent(btnAgregarMedicamento))))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(117, 117, 117)
-                .addComponent(jLabel2)
+                .addComponent(lblMedicamentos)
                 .addGap(36, 36, 36)
-                .addComponent(jButton3)
+                .addComponent(btnAgregarMedicamento)
                 .addGap(29, 29, 29)
-                .addComponent(jButton4)
+                .addComponent(btnMostrarMedicamento)
                 .addGap(36, 36, 36)
-                .addComponent(jButton5)
+                .addComponent(btnEliminarMedicamento)
                 .addContainerGap(182, Short.MAX_VALUE))
         );
 
@@ -398,47 +435,52 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Horas médicas");
+        lblHorasMedicas.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        lblHorasMedicas.setForeground(new java.awt.Color(0, 0, 0));
+        lblHorasMedicas.setText("Horas médicas");
 
-        jButton6.setBackground(new java.awt.Color(0, 130, 130));
-        jButton6.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Agregar hora");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAgregarHora.setBackground(new java.awt.Color(0, 130, 130));
+        btnAgregarHora.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        btnAgregarHora.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarHora.setText("Agregar hora");
+        btnAgregarHora.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                btnAgregarHoraMouseClicked(evt);
             }
         });
-
-        jButton7.setBackground(new java.awt.Color(0, 130, 130));
-        jButton7.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Mostrar horas");
-        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton7MouseClicked(evt);
-            }
-        });
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnAgregarHoraActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(0, 130, 130));
-        jButton8.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Buscar hora");
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnMostrarHoras.setBackground(new java.awt.Color(0, 130, 130));
+        btnMostrarHoras.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        btnMostrarHoras.setForeground(new java.awt.Color(255, 255, 255));
+        btnMostrarHoras.setText("Mostrar horas");
+        btnMostrarHoras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton8MouseClicked(evt);
+                btnMostrarHorasMouseClicked(evt);
             }
         });
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrarHoras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnMostrarHorasActionPerformed(evt);
+            }
+        });
+
+        btnBuscarHora.setBackground(new java.awt.Color(0, 130, 130));
+        btnBuscarHora.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        btnBuscarHora.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarHora.setText("Buscar hora");
+        btnBuscarHora.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarHoraMouseClicked(evt);
+            }
+        });
+        btnBuscarHora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarHoraActionPerformed(evt);
             }
         });
 
@@ -452,25 +494,25 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton7)
-                            .addComponent(jButton6)))
+                            .addComponent(btnMostrarHoras)
+                            .addComponent(btnAgregarHora)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(jButton8))
-                    .addComponent(jLabel3))
+                        .addComponent(btnBuscarHora))
+                    .addComponent(lblHorasMedicas))
                 .addGap(106, 106, 106))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(129, 129, 129)
-                .addComponent(jLabel3)
+                .addComponent(lblHorasMedicas)
                 .addGap(48, 48, 48)
-                .addComponent(jButton6)
+                .addComponent(btnAgregarHora)
                 .addGap(30, 30, 30)
-                .addComponent(jButton7)
+                .addComponent(btnMostrarHoras)
                 .addGap(33, 33, 33)
-                .addComponent(jButton8)
+                .addComponent(btnBuscarHora)
                 .addContainerGap(160, Short.MAX_VALUE))
         );
 
@@ -501,10 +543,6 @@ public class Menu extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnSalirMouseClicked
 
-    private void btnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDatosActionPerformed
-
     private void btnApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApoderadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnApoderadoActionPerformed
@@ -524,93 +562,101 @@ public class Menu extends javax.swing.JFrame {
         tabPn.setSelectedIndex(3);
     }//GEN-LAST:event_btnHorasMedicasMouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnAgregarMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarMedicamentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnAgregarMedicamentoActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnMostrarHorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarHorasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnMostrarHorasActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btnBuscarHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHoraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnBuscarHoraActionPerformed
 
     private void btnRegistrarApoderadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarApoderadoMouseClicked
         // TODO add your handling code here:
-        CrearApoderado registrar=new CrearApoderado();
-        registrar.setVisible(true);
-        this.setVisible(false);
+        comando=2;
     }//GEN-LAST:event_btnRegistrarApoderadoMouseClicked
 
     private void btnMostrarApoderadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarApoderadoMouseClicked
         // TODO add your handling code here:
-        Modelos.AdultoMayor adultos;
-        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
-        
-        adultos.imprimirAdultoACargo();
+        comando=3;
     }//GEN-LAST:event_btnMostrarApoderadoMouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void btnAgregarMedicamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMedicamentoMouseClicked
         // TODO add your handling code here:
-        Modelos.AdultoMayor adultos;
-        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
-        
-        adultos.agregarMedicamentos();
-    }//GEN-LAST:event_jButton3MouseClicked
+        comando=4;
+    }//GEN-LAST:event_btnAgregarMedicamentoMouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    private void btnMostrarMedicamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarMedicamentoMouseClicked
         // TODO add your handling code here:
-        Modelos.AdultoMayor adultos;
-        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
-        
-        adultos.imprimirMedicamentos();
-    }//GEN-LAST:event_jButton4MouseClicked
+        comando=5;
+    }//GEN-LAST:event_btnMostrarMedicamentoMouseClicked
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+    private void btnEliminarMedicamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMedicamentoMouseClicked
         // TODO add your handling code here:
-        String aEliminar="";
-        Modelos.AdultoMayor adultos;
-        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
-        
-        if (aEliminar.matches("[0-9]*")) {
-            adultos.eliminarMedicamento(Integer.parseInt(aEliminar));
-        }else
-            adultos.eliminarMedicamento(aEliminar);
-    }//GEN-LAST:event_jButton5MouseClicked
+        comando=6;
+    }//GEN-LAST:event_btnEliminarMedicamentoMouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void btnAgregarHoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarHoraMouseClicked
         // TODO add your handling code here:
-        Modelos.AdultoMayor adultos;
-        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
-        
-        adultos.agregarHoraMedica();
-    }//GEN-LAST:event_jButton6MouseClicked
+        comando=7;
+    }//GEN-LAST:event_btnAgregarHoraMouseClicked
 
-    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+    private void btnMostrarHorasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarHorasMouseClicked
         // TODO add your handling code here:
-        Modelos.AdultoMayor adultos;
-        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
-        
-        //adultos.ListarHoras();
-    }//GEN-LAST:event_jButton7MouseClicked
+        comando=8;
+    }//GEN-LAST:event_btnMostrarHorasMouseClicked
 
-    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+    private void btnBuscarHoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarHoraMouseClicked
         // TODO add your handling code here:
-        String aBuscar="";
-        Modelos.AdultoMayor adultos;
-        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
-        
-        adultos.buscarMedicamento(aBuscar);
-    }//GEN-LAST:event_jButton8MouseClicked
+        comando=9;
+    }//GEN-LAST:event_btnBuscarHoraMouseClicked
 
     private void btnEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarMouseClicked
         // TODO add your handling code here:
-        Modelos.AdultoMayor adultos;
-        adultos = new Modelos.AdultoMayor("200132565", "dfs", "Diego", "Lugar", 85, 963667859); 
-        
-        adultos.ModificarDato();
+        comando=10;
     }//GEN-LAST:event_btnEditarMouseClicked
+
+    private void btnAgregarHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarHoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarHoraActionPerformed
+
+    private void btnRegistrarApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarApoderadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarApoderadoActionPerformed
+
+    private void btnMostrarApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarApoderadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMostrarApoderadoActionPerformed
+
+    private void btnDatos1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDatos1MouseClicked
+        // TODO add your handling code here:
+        comando=1;
+    }//GEN-LAST:event_btnDatos1MouseClicked
+
+    private void btnDatos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatos1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDatos1ActionPerformed
+
+    private void btnLlamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLlamarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLlamarActionPerformed
+
+    private void btnEmergenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmergenciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEmergenciaActionPerformed
+
+    private void btnLlamarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLlamarMouseClicked
+        // TODO add your handling code here:
+        comando=11;
+    }//GEN-LAST:event_btnLlamarMouseClicked
+
+    private void btnEmergenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmergenciaMouseClicked
+        // TODO add your handling code here:
+        comando=12;
+    }//GEN-LAST:event_btnEmergenciaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -642,37 +688,41 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                //new Menu().setVisible(true);
             }
         });
     }
 
+    public int getComando() {
+        return comando;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarHora;
+    private javax.swing.JButton btnAgregarMedicamento;
     private javax.swing.JButton btnApoderado;
-    private javax.swing.JButton btnDatos;
+    private javax.swing.JButton btnBuscarHora;
+    private javax.swing.JButton btnDatos1;
     private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEliminarMedicamento;
+    private javax.swing.JButton btnEmergencia;
     private javax.swing.JButton btnHorasMedicas;
+    private javax.swing.JButton btnLlamar;
     private javax.swing.JButton btnMedicamentos;
     private javax.swing.JButton btnMostrarApoderado;
+    private javax.swing.JButton btnMostrarHoras;
+    private javax.swing.JButton btnMostrarMedicamento;
     private javax.swing.JButton btnRegistrarApoderado;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JLabel lblEmergencia;
-    private javax.swing.JLabel lblLlamar;
+    private javax.swing.JLabel lblApoderado;
+    private javax.swing.JLabel lblHorasMedicas;
+    private javax.swing.JLabel lblMedicamentos;
     private javax.swing.JPanel pnApoderado;
     private javax.swing.JPanel pnHoras;
     private javax.swing.JPanel pnMedicamentos;
