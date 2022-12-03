@@ -67,7 +67,7 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(0, 130, 130));
 
-        btnSalir.setBackground(new java.awt.Color(0, 130, 130));
+        btnSalir.setBackground(new java.awt.Color(7, 71, 143));
         btnSalir.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
@@ -196,28 +196,32 @@ public class Menu extends javax.swing.JFrame {
         pnPrincipal.setLayout(pnPrincipalLayout);
         pnPrincipalLayout.setHorizontalGroup(
             pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnPrincipalLayout.createSequentialGroup()
-                .addContainerGap(88, Short.MAX_VALUE)
-                .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPrincipalLayout.createSequentialGroup()
-                        .addComponent(btnEditar)
-                        .addGap(164, 164, 164))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPrincipalLayout.createSequentialGroup()
-                        .addComponent(btnApoderado)
-                        .addGap(125, 125, 125))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPrincipalLayout.createSequentialGroup()
-                        .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnDatos1)
-                            .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnMedicamentos)
-                                .addComponent(btnHorasMedicas)))
-                        .addGap(107, 107, 107))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPrincipalLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(btnLlamar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnEmergencia)
                 .addGap(14, 14, 14))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPrincipalLayout.createSequentialGroup()
+                .addContainerGap(98, Short.MAX_VALUE)
+                .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPrincipalLayout.createSequentialGroup()
+                        .addComponent(btnDatos1)
+                        .addGap(107, 107, 107))
+                    .addGroup(pnPrincipalLayout.createSequentialGroup()
+                        .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnMedicamentos)
+                            .addComponent(btnHorasMedicas))
+                        .addContainerGap())))
+            .addGroup(pnPrincipalLayout.createSequentialGroup()
+                .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnPrincipalLayout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(btnApoderado))
+                    .addGroup(pnPrincipalLayout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(btnEditar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnPrincipalLayout.setVerticalGroup(
             pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,17 +231,17 @@ public class Menu extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEmergencia))
                     .addGroup(pnPrincipalLayout.createSequentialGroup()
-                        .addGap(105, 105, 105)
+                        .addGap(123, 123, 123)
                         .addComponent(btnDatos1)
                         .addGap(18, 18, 18)
                         .addComponent(btnApoderado)
-                        .addGap(36, 36, 36)
+                        .addGap(18, 18, 18)
                         .addComponent(btnMedicamentos)
-                        .addGap(34, 34, 34)
+                        .addGap(18, 18, 18)
                         .addComponent(btnHorasMedicas)
-                        .addGap(35, 35, 35)
+                        .addGap(18, 18, 18)
                         .addComponent(btnEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                         .addComponent(btnLlamar)))
                 .addGap(14, 14, 14))
         );

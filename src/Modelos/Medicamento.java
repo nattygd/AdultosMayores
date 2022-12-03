@@ -9,7 +9,7 @@ package Modelos;
  */
 import java.util.Scanner;
 
-public class Medicamento {
+public class Medicamento implements InterfaceMedicamento {
     // atributos
     private String Nombre;
     private int Concentracion;
@@ -63,6 +63,7 @@ public class Medicamento {
     }
 
     // comportamientos
+    @Override
     public void CrearMedicamentos() {
         String input;
 

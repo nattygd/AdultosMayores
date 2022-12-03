@@ -58,9 +58,9 @@ public class Main {
                                 
                             //APODERADO
                             case 2:
-                                System.out.println("Ingrese rut sin punto ni guion:");
-                                rut = entrada.next();
-                                while (!rut.matches("[0-9]*")) {
+                                System.out.println("Ingrese rut sin puntos ni guion:");
+                                rut = entrada.next();              
+                                while (!rut.matches("\\d{8,9}")) { 
                                     System.out.println("Tipo de dato incorrecto, solo numeros");
                                     System.out.println("Ingrese rut valido:");
                                     rut = entrada.next();
@@ -74,10 +74,10 @@ public class Main {
                                     nombre = entrada.next();
                                 }
 
-                                System.out.println("Ingrese direccion:");
+                                System.out.println("Ingrese direccion: ejemplo : (Casablanca-21)");
                                 direccion = entrada.next();
-                                while (!direccion.matches("[a-zA-Z]*")) {
-                                    System.out.println("Tipo de dato incorrecto, solo letras");
+                                while (!direccion.matches("[a-zA-Z0-9]*\\-+\\d{1,5}")){ 
+                                    System.out.println("Tipo de dato incorrecto, ejemplo : (Casablanca-21)");
                                     System.out.println("Ingrese direccion valida:");
                                     direccion = entrada.next();
                                 }
@@ -90,9 +90,9 @@ public class Main {
                                     parentesco = entrada.next();
                                 }
                                 
-                                System.out.println("Ingrese numero de contacto:");
+                                System.out.println("Ingrese numero de contacto: (ejemplo 63667857)");
                                 input = entrada.next();
-                                while (!input.matches("[0-9]*")) {
+                                while (!input.matches("\\d{8}")) {
                                     System.out.println("Tipo de dato incorrecto, solo numeros");
                                     System.out.println("Ingrese numero de contacto valido:");
                                     input = entrada.next();
@@ -154,6 +154,14 @@ public class Main {
                             case 12:
                                 adultosMayores.get(i).LlamadaEmergencia();
                                 break;
+                                
+                            case 13:
+                                adultosMayores.get(i).ApoderadoMenor();
+                                break;
+                                
+                            case 14:
+                                adultosMayores.get(i).BuscarCelularNumeroFinal();
+                                break;
                         }
                         
                         comandoLogin=0;
@@ -168,7 +176,7 @@ public class Main {
                 //AGREGAR ADULTO MAYOR
                 System.out.println("Ingrese rut sin puntos ni guion:");
                 rut = entrada.next();
-                while (!rut.matches("[0-9]*")) {
+                while (!rut.matches("\\d{8,9}")) {  ///// Agregar a todos los rut ******************************************************
                     System.out.println("Tipo de dato incorrecto, solo numeros");
                     System.out.println("Ingrese rut valido:");
                     rut = entrada.next();
@@ -190,26 +198,26 @@ public class Main {
                     nombre = entrada.next();
                 }
 
-                System.out.println("Ingrese Direccion:");
+                System.out.println("Ingrese direccion: ejemplo: (Casablanca-21)");
                 direccion = entrada.next();
-                while (!direccion.matches("[a-zA-Z]*")) {
-                    System.out.println("Tipo de dato incorrecto, solo letras");
+                while (!direccion.matches("[a-zA-Z0-9]*\\-+\\d{1,5}")){ 
+                    System.out.println("Tipo de dato incorrecto, ejemplo : (Casablanca-21)");
                     System.out.println("Ingrese direccion valida:");
                     direccion = entrada.next();
                 }
 
                 System.out.println("Ingrese edad:");
                 input = entrada.next();
-                while (!input.matches("[0-9]*")) {
+                while (!input.matches("\\d{2}")) { 
                     System.out.println("Tipo de dato incorrecto, solo numeros");
                     System.out.println("Ingrese edad valida:");
                     input = entrada.next();
                 }
                 edad = Integer.parseInt(input);
 
-                System.out.println("Ingrese numero de contacto:");
+                System.out.println("Ingrese numero de contacto: (ejemplo 63667857)");
                 input = entrada.next();
-                while (!input.matches("[0-9]*")) {
+                while (!input.matches("\\d{8}")) { 
                     System.out.println("Tipo de dato incorrecto, solo numeros");
                     System.out.println("Ingrese numero de contacto valido:");
                     input = entrada.next();
@@ -260,6 +268,8 @@ public class Main {
     System.out.println("Opcion 11: Buscar dato medicamento");
     System.out.println("Opcion 12:  Buscar celular");
     System.out.println("Opcion 13:  Llamada de emergencia");
+    System.out.println("Opcion 14:  Buscar apoderado con el rut menor");
+    System.out.println("Opcion 15:  Buscar Celular que termine con el numero : ");
     System.out.println("Ingrese una opcion:");
     opcion = entrada.nextInt();
     while (!String.valueOf(opcion).matches("[0-9]*")) {
