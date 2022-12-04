@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author natty
@@ -47,6 +49,7 @@ public class Menu extends javax.swing.JFrame {
         lblApoderado = new javax.swing.JLabel();
         btnRegistrarApoderado = new javax.swing.JButton();
         btnMostrarApoderado = new javax.swing.JButton();
+        btnApoderadoMenor = new javax.swing.JButton();
         pnMedicamentos = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         lblMedicamentos = new javax.swing.JLabel();
@@ -310,6 +313,16 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btnApoderadoMenor.setBackground(new java.awt.Color(0, 130, 130));
+        btnApoderadoMenor.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        btnApoderadoMenor.setForeground(new java.awt.Color(255, 255, 255));
+        btnApoderadoMenor.setText("Apoderado menor");
+        btnApoderadoMenor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnApoderadoMenorMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -324,8 +337,10 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(btnRegistrarApoderado)
                         .addGap(74, 74, 74))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(btnMostrarApoderado)
-                        .addGap(91, 91, 91))))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnApoderadoMenor)
+                            .addComponent(btnMostrarApoderado))
+                        .addGap(78, 78, 78))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,7 +351,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(btnRegistrarApoderado)
                 .addGap(44, 44, 44)
                 .addComponent(btnMostrarApoderado)
-                .addContainerGap(243, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(btnApoderadoMenor)
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnApoderadoLayout = new javax.swing.GroupLayout(pnApoderado);
@@ -580,6 +597,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnRegistrarApoderadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarApoderadoMouseClicked
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Interactue con la consola");
         comando=2;
     }//GEN-LAST:event_btnRegistrarApoderadoMouseClicked
 
@@ -590,6 +608,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnAgregarMedicamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMedicamentoMouseClicked
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Interactue con la consola");
         comando=4;
     }//GEN-LAST:event_btnAgregarMedicamentoMouseClicked
 
@@ -600,11 +619,13 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnEliminarMedicamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMedicamentoMouseClicked
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Interactue con la consola");
         comando=6;
     }//GEN-LAST:event_btnEliminarMedicamentoMouseClicked
 
     private void btnAgregarHoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarHoraMouseClicked
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Interactue con la consola");
         comando=7;
     }//GEN-LAST:event_btnAgregarHoraMouseClicked
 
@@ -615,11 +636,13 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnBuscarHoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarHoraMouseClicked
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Interactue con la consola");
         comando=9;
     }//GEN-LAST:event_btnBuscarHoraMouseClicked
 
     private void btnEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarMouseClicked
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Interactue con la consola");
         comando=10;
     }//GEN-LAST:event_btnEditarMouseClicked
 
@@ -654,6 +677,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnLlamarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLlamarMouseClicked
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Interactue con la consola");
         comando=11;
     }//GEN-LAST:event_btnLlamarMouseClicked
 
@@ -661,6 +685,11 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         comando=12;
     }//GEN-LAST:event_btnEmergenciaMouseClicked
+
+    private void btnApoderadoMenorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApoderadoMenorMouseClicked
+        // TODO add your handling code here:
+        comando=13;
+    }//GEN-LAST:event_btnApoderadoMenorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -701,10 +730,15 @@ public class Menu extends javax.swing.JFrame {
         return comando;
     }
 
+    public void setComando(int comando) {
+        this.comando = comando;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarHora;
     private javax.swing.JButton btnAgregarMedicamento;
     private javax.swing.JButton btnApoderado;
+    private javax.swing.JButton btnApoderadoMenor;
     private javax.swing.JButton btnBuscarHora;
     private javax.swing.JButton btnDatos1;
     private javax.swing.JButton btnEditar;

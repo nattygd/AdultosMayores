@@ -10,7 +10,6 @@ package Modelos;
 import java.io.*;
 import java.util.Scanner;
 
-
 public class HoraMedica {
     // atributos
     private String Titulo;
@@ -162,7 +161,7 @@ public class HoraMedica {
     }
 
 
-    public void ListarHoras() {
+    public void ListarHoras1() {
         System.out.println("Horas Medicas:");
 
         System.out.println("Asunto: " + Titulo);
@@ -174,22 +173,24 @@ public class HoraMedica {
         if(NumeroContacto!=0){
             System.out.println("Numero de contacto: " + NumeroContacto);
         }
+        
+        System.out.println("//////////////////////////////////;");
     }
     
     public void crearCsv() throws FileNotFoundException{
         FileWriter fw = null;
         PrintWriter pw = null;
-        
+
         try{
-            fw = new FileWriter("prueba.csv", true);
+            fw = new FileWriter("RegistroHorasMedicas.csv", true);
             pw = new PrintWriter(fw);
-            
+
             //StringBuffer csvHeader=new StringBuffer("");
             StringBuffer csvData=new StringBuffer("");
             //csvHeader.append("Asunto; Medico; Fecha y hora; Ubicacion; Numero contacto\n");
-            
+
             //pw.write(csvHeader.toString());
-            
+
             csvData.append(Titulo);
             csvData.append(';');
             if(!Medico.equals("vacio")){
@@ -210,6 +211,41 @@ public class HoraMedica {
             System.out.println("Error");
         }finally{
             pw.close();
+        }
+    }
+    
+    public void leerCsv(){
+        try{
+            BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
+            BufferedReader reader=new BufferedReader(new FileReader("RegistroHorasMedicas.csv"));
+            
+            System.out.println("Ingrese asunto de su hora medica");
+            input=in.readLine();
+            
+            boolean encontrado=false;
+            String linea=null;
+            
+            while((linea=reader.readLine()) !=null){
+                String []partes=linea.split(";");
+                int totalPartes=partes.length;
+                
+                for (int i=0; i<totalPartes; i++){
+                    if (input.compareTo(partes[i])==0){
+                        for (int j=0; j<totalPartes; j++){
+                            System.out.print(partes[j]+" ");
+                        }
+                        System.out.println();
+                        encontrado=true;
+                        break;
+                    }
+                }
+            }
+            
+            if (encontrado==false){
+                System.out.println("No encontrado");
+            }
+        }catch(IOException e){
+            e.printStackTrace();
         }
     }
     

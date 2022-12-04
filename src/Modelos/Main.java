@@ -12,6 +12,7 @@ import Vista.Menu;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Main {
     static Scanner entrada = new Scanner(System.in);
@@ -36,24 +37,28 @@ public class Main {
         Menu menuOpciones=new Menu();
         int comandoLogin=0;
         
+        login.setVisible(true);
         while(comandoLogin!=3){
-            login.setVisible(true);
+            //if (comandoLogin==0)
+                
             int comandoOpciones=0;
-            Thread.sleep(10000);
+            Thread.sleep(6000);
             
             if (login.getComando()==1){
                 for (int i=0; i<adultosMayores.size(); i++){
-                    if (adultosMayores.get(i).getRut().equals(login.getAdulto().getRut()) && adultosMayores.get(i).getContrasenia().equals(login.getAdulto().getContrasenia())){
-                        System.out.println("Bienvenid@");
-                        login.setVisible(false);
+                    if (adultosMayores.get(i).getRut().equals(login.getAdulto().getRut()) && adultosMayores.get(i).getContrasenia().equals(login.getAdulto().getContrasenia())){;
                         menuOpciones.setVisible(true);
-                        Thread.sleep(10000);
+                        login.dispose();
+                        
+                        //Thread.sleep(10000);
                         
                         comandoOpciones=menuOpciones.getComando();
                         switch(comandoOpciones){
                             //ADULTO MAYOR
                             case 1:
+                                JOptionPane.showMessageDialog(menuOpciones, "Se mostrarán los datos en la consola");
                                 adultosMayores.get(i).imprimirDatos();
+                                Thread.sleep(10000);
                                 break;
                                 
                             //APODERADO
@@ -107,7 +112,9 @@ public class Main {
                                 break;
                                 
                             case 3:
+                                JOptionPane.showMessageDialog(menuOpciones, "Se mostrarán los datos en la consola");
                                 adultosMayores.get(i).imprimirAdultoACargo();
+                                Thread.sleep(10000);
                                 break;
                             
                             //MEDICAMENTOS
@@ -116,7 +123,9 @@ public class Main {
                                 break;
                                 
                             case 5:
+                                JOptionPane.showMessageDialog(menuOpciones, "Se mostrarán los datos en la consola");
                                 adultosMayores.get(i).imprimirMedicamentos();
+                                Thread.sleep(10000);
                                 break;
                                 
                             case 6:
@@ -135,11 +144,13 @@ public class Main {
                                 break;
                                 
                             case 8:
+                                JOptionPane.showMessageDialog(menuOpciones, "Se mostrarán los datos en la consola");
                                 adultosMayores.get(i).ListarHoras();
+                                Thread.sleep(10000);
                                 break;
                                 
                             case 9:
-                                //adultosMayores.get(i).buscarHora();
+                                adultosMayores.get(i).BuscarHora();
                                 break;
                             
                             //EDITAR
@@ -148,7 +159,13 @@ public class Main {
                                 break;
                                 
                             case 11:
-                                adultosMayores.get(i).Llamar();
+                                System.out.println("Ingrese 1 si necesita llamar a su celular o 2 si necesita llamar a uno de sus apoderados");
+                                input=(entrada.next());
+                                
+                                if (input.equals("1"))
+                                    adultosMayores.get(i).Llamar();
+                                else if (input.equals("2"))
+                                    adultosMayores.get(i).BuscarCelularNumeroFinal();
                                 break;
                                 
                             case 12:
@@ -157,22 +174,21 @@ public class Main {
                                 
                             case 13:
                                 adultosMayores.get(i).ApoderadoMenor();
-                                break;
-                                
-                            case 14:
-                                adultosMayores.get(i).BuscarCelularNumeroFinal();
+                                Thread.sleep(10000);
                                 break;
                         }
                         
                         comandoLogin=0;
                         comandoOpciones=0;
-                        menuOpciones.setVisible(false);
+                        //menuOpciones.dispose();
                     }else
                         System.out.println("Usuario o contrasenia incorrecta");
                 }
             }
             
             if (login.getComando()==2){
+                JOptionPane.showMessageDialog(menuOpciones, "Interactue con la consola");
+                
                 //AGREGAR ADULTO MAYOR
                 System.out.println("Ingrese rut sin puntos ni guion:");
                 rut = entrada.next();
