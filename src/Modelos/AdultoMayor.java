@@ -61,18 +61,6 @@ public class AdultoMayor extends Individuo {
     
     // comportamientos
     
-    /*
-    public static boolean autentificar(String rut, String contrasenia){
-        if (getRut()!=null){
-            if (rut.equals(getRut()) && contrasenia.equals(Contrasenia)){
-                return true;
-            }else
-                return false;
-        }else
-            return false;
-    }
-    */
-    
     public void imprimirDatos() {
         System.out.println("Rut del adulto mayor: " + getRut());
         System.out.println("Nombre del adulto mayor: " + getNombre());
@@ -117,16 +105,6 @@ public class AdultoMayor extends Individuo {
     
     public void imprimirMedicamentos() {
         System.out.println("//////////////////////////////////;"); //////////////////
-
-        for (int i = 0; i < Medicamentos.size(); i++) {
-            System.out.println("Nro Medicamento : " + i);
-            System.out.println("Nombre : " + Medicamentos.get(i).getNombre());
-            System.out.println("Concentracion : " + Medicamentos.get(i).getConcentracion());
-            System.out.println("Frecuencia : " + Medicamentos.get(i).getFrecuencia());
-            System.out.println("Dosis : " + Medicamentos.get(i).getDosis());
-
-            System.out.println("//////////////////////////////////;"); //////////////////
-        }
         
         if(!Medicamentos.isEmpty()){
             for (int i = 0; i < Medicamentos.size(); i++) {
@@ -163,10 +141,6 @@ public class AdultoMayor extends Individuo {
     }
 
     public void imprimirAdultoACargo() {  
-        for(int l=0;l< Apoderado.size(); l++){
-            Apoderado.get(l).imprimir();
-        }
-        
         if(!Apoderado.isEmpty()){
             for(int l=0;l< Apoderado.size(); l++){
                 Apoderado.get(l).imprimir();
@@ -206,8 +180,17 @@ public class AdultoMayor extends Individuo {
     public void ListarHoras() throws FileNotFoundException{
         if(HorasMedicas.size()>0){
             for(int k=0;k< HorasMedicas.size(); k++){
-                HorasMedicas.get(k).ListarHoras();
+                HorasMedicas.get(k).ListarHoras1();
                 HorasMedicas.get(k).crearCsv();
+            }
+        }else
+            System.out.println("No hay Horas Agendadas");
+    }
+    
+    public void BuscarHora(){
+        if(HorasMedicas.size()>0){
+            for(int k=0;k< HorasMedicas.size(); k++){
+                HorasMedicas.get(k).leerCsv();
             }
         }else
             System.out.println("No hay Horas Agendadas");
