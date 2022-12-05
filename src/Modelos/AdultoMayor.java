@@ -216,8 +216,8 @@ public class AdultoMayor extends Individuo {
         }
     }
     
-    //NO PROBADO
-    public void ApoderadoMenor(){ // no probado  ********************************************************
+   
+    public void ApoderadoMenor(){ 
         if(Apoderado.size()>0){
             int auxiliar=0; 
             for(int k=1; k<Apoderado.size(); k++){
@@ -233,7 +233,7 @@ public class AdultoMayor extends Individuo {
         }
     }
     
-    public void BuscarCelularNumeroFinal(){ //////////////probar *********************************************************
+    public void BuscarCelularNumeroFinal(){ 
         System.out.println("Esbriba el numero final de los celulares que desea buscar");
         int flag =0;
             String input = entrada.next();

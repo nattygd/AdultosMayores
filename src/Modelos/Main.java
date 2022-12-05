@@ -17,8 +17,6 @@ import javax.swing.JOptionPane;
 public class Main {
     static Scanner entrada = new Scanner(System.in);
     
-    //arreglar (si se pide imprimir algo inexistente) Error
-    //agregar funcion llamar a apoderados
     
     public static void main(String[] args) throws FileNotFoundException, InterruptedException{
         ArrayList <AdultoMayor> adultosMayores=new ArrayList<>();
@@ -63,46 +61,96 @@ public class Main {
                                 
                             //APODERADO
                             case 2:
-                                System.out.println("Ingrese rut sin puntos ni guion:");
-                                rut = entrada.next();              
-                                while (!rut.matches("\\d{8,9}")) { 
-                                    System.out.println("Tipo de dato incorrecto, solo numeros");
-                                    System.out.println("Ingrese rut valido:");
-                                    rut = entrada.next();
-                                }
+                                boolean flag;
+                                flag=false;
+                                do {
+                                    System.out.println("Ingrese rut sin puntos y con guion:");
+                                    rut = entrada.next();  
+                                    try {
+                                        if(rut.matches("\\d{7,8}\\-+\\d{1}")) { 
+                                        flag= true;
+                                        }
+                                        else
+                                        {
+                                            System.out.println("Ingrese rut valido:");
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println("Error al ingresar rut");
+                                    }
+                                } while (!flag);
 
-                                System.out.println("Ingrese nombre:");
-                                nombre = entrada.next();
-                                while (!nombre.matches("[a-zA-Z]*")) {
-                                    System.out.println("Tipo de dato incorrecto, solo letras");
-                                    System.out.println("Ingrese nombre valido:");
+                                flag=false;
+                                do {
+                                    System.out.println("Ingrese nombre:");
                                     nombre = entrada.next();
-                                }
-
-                                System.out.println("Ingrese direccion: ejemplo : (Casablanca-21)");
-                                direccion = entrada.next();
-                                while (!direccion.matches("[a-zA-Z0-9]*\\-+\\d{1,5}")){ 
-                                    System.out.println("Tipo de dato incorrecto, ejemplo : (Casablanca-21)");
-                                    System.out.println("Ingrese direccion valida:");
-                                    direccion = entrada.next();
-                                }
-
-                                System.out.println("Ingrese parentesco con el adulto mayor:");
-                                parentesco = entrada.next();
-                                while (!parentesco.matches("[a-zA-Z]*")) {
-                                    System.out.println("Tipo de dato incorrecto, solo letras");
-                                    System.out.println("Ingrese parentesco valido:");
-                                    parentesco = entrada.next();
-                                }
+                                    try {
+                                        if(nombre.matches("[a-zA-Z]*")){
+                                        flag= true;
+                                        }
+                                        else
+                                        {
+                                            System.out.println("Ingrese nombre valido:");
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println("Error al ingresar nombre");
+                                    }
+                                } while (!flag);
                                 
-                                System.out.println("Ingrese numero de contacto: (ejemplo 63667857)");
-                                input = entrada.next();
-                                while (!input.matches("\\d{8}")) {
-                                    System.out.println("Tipo de dato incorrecto, solo numeros");
-                                    System.out.println("Ingrese numero de contacto valido:");
+
+                                flag=false;
+                                do {
+                                    System.out.println("Ingrese direccion: ejemplo : (Casablanca-21)");
+                                    direccion = entrada.next();
+                                    try {
+                                        if(direccion.matches("[a-zA-Z0-9]*\\-+\\d{1,5}")){
+                                        flag= true;
+                                        }
+                                        else
+                                        {
+                                            System.out.println("Tipo de dato incorrecto, ejemplo : (Casablanca-21)");
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println("Error al ingresar direccion");
+                                    }
+                                } while (!flag);
+
+                                flag=false;
+                                do {
+                                    System.out.println("Ingrese parentesco con el adulto mayor:");
+                                    parentesco = entrada.next();
+                                    try {
+                                        if(parentesco.matches("[a-zA-Z]*")){
+                                        flag= true;
+                                        }
+                                        else
+                                        {
+                                            System.out.println("Tipo de dato incorrecto, solo letras");
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println("Error al ingresar el parentesco");
+                                    }
+                                } while (!flag);
+                                
+                                flag= false;
+                                do {
+                                    System.out.println("Ingrese numero de contacto: (ejemplo 63667857)");
                                     input = entrada.next();
-                                }
-                                numeroCelular = Integer.parseInt(input);
+                                    numeroCelular=0;
+                                    try {
+                                        numeroCelular = Integer.parseInt(input);
+                                        if(input.matches("\\d{8}")){
+                                        flag= true;
+                                        }else{
+                                            System.out.println("Escriba un numero valido (ejemplo 63667857) solo 8 digitos ");
+                                        }
+                                    } catch (NumberFormatException e) {
+                                        System.out.println( e.toString());
+                                        System.out.println("Tipo de dato incorrecto, solo numeros");
+                                    }
+                                } while (!flag);
+                                ////////////////////////////////
+                                
+                                
                 
                                 adultosMayores.get(i).agregarApoderado(rut, nombre, direccion, parentesco, numeroCelular);
                 
